@@ -7,134 +7,342 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .selection-red::selection { background: rgba(239, 68, 68, 0.3); }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .feature-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        .feature-card:hover { border-color: #ef4444; transform: translateY(-5px); background: rgba(30, 41, 59, 0.8); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #ef4444; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 selection-red">
+<body class="bg-slate-950 text-slate-100 selection-red overflow-x-hidden">
 
-    <nav class="fixed top-0 w-full z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-red-600 rounded flex items-center justify-center font-bold text-lg">D</div>
-                <span class="font-black text-xl tracking-tighter text-white uppercase italic">DAENG <span class="text-red-500">PATCH</span></span>
+    <!-- Navigasi -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-lg shadow-red-600/20">D</div>
+                <span class="font-black text-2xl tracking-tighter text-white uppercase italic">DAENG <span class="text-red-500">PATCH</span></span>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-xs font-black uppercase tracking-widest text-slate-400">
-                <a href="#pricing" class="hover:text-white transition-colors">Order</a>
-                <a href="https://wa.me/6287777747477" class="flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2 rounded-full text-xs font-bold hover:bg-slate-800 transition-all">
-                    <i data-lucide="message-circle" class="text-green-500 w-4 h-4"></i> Chat Admin
+            
+            <div class="hidden md:flex items-center gap-8 text-xs font-black uppercase tracking-widest">
+                <a href="#features" class="text-slate-400 hover:text-white transition-colors">Fitur Utama</a>
+                <a href="#teams" class="text-slate-400 hover:text-white transition-colors">Daftar Tim</a>
+                <a href="#pricing" class="text-slate-400 hover:text-white transition-colors">Harga</a>
+                <a href="https://wa.me/6287777747477" class="flex items-center gap-2 bg-red-600 px-6 py-3 rounded-full text-xs font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-600/20">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> HUBUNGI KAMI
                 </a>
             </div>
+
+            <button class="md:hidden text-white" onclick="toggleMenu()">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-slate-950 border-b border-slate-800 p-6 space-y-4 font-bold text-center">
+            <a href="#features" class="block text-slate-400" onclick="toggleMenu()">FITUR</a>
+            <a href="#teams" class="block text-slate-400" onclick="toggleMenu()">DAFTAR TIM</a>
+            <a href="#pricing" class="block text-slate-400" onclick="toggleMenu()">HARGA</a>
+            <a href="https://wa.me/6287777747477" class="block text-red-500" onclick="toggleMenu()">CHAT ADMIN</a>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-4 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-red-600/10 blur-[120px] rounded-full -z-10"></div>
-        <div class="max-w-5xl mx-auto text-center">
-            <div class="inline-block bg-red-600/10 border border-red-600/20 text-red-500 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-                Pioneer of Game Modding
+    <!-- Hero Section -->
+    <section class="pt-48 pb-24 px-6 relative overflow-hidden text-center">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-red-600/10 blur-[150px] rounded-full -z-10 animate-pulse"></div>
+        <div class="max-w-5xl mx-auto">
+            <div class="inline-flex items-center gap-2 bg-red-600/10 border border-red-600/20 text-red-500 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+                <span class="flex h-2 w-2 relative"><span class="animate-ping absolute h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span></span>
+                Update Winter Season 25/26 is Here
             </div>
-            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-none italic tracking-tighter uppercase text-white">
-                DAENG PATCH <br />
-                <span class="text-red-600">STORE</span>
+            <h1 class="text-6xl md:text-9xl font-black mb-8 leading-none italic tracking-tighter uppercase text-white">
+                DAENG<br />
+                <span class="text-red-600">PATCH STORE</span>
             </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-12 font-medium">
-                Tingkatkan kualitas permainan Anda dengan patch terbaik yang didesain khusus untuk PC dan PS4 HEN. Update transfer, wajah, dan atmosfer stadion secara instan.
+            <p class="text-slate-400 max-w-2xl mx-auto text-xl mb-12 font-medium">
+                Update Transfer Winter 25/26, Komentator Indonesia, dan Ratusan Tim Fantasy & Classic dalam satu paket premium.
             </p>
-            <a href="#pricing" class="inline-block bg-white text-black px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-xl shadow-white/5">
-                MULAI ORDER
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#pricing" class="bg-white text-black px-12 py-6 rounded-2xl font-black text-lg hover:scale-105 transition-all flex items-center justify-center gap-3">
+                    ORDER SEKARANG <i data-lucide="shopping-cart"></i>
+                </a>
+                <a href="#features" class="bg-slate-900 text-white border border-slate-800 px-12 py-6 rounded-2xl font-black text-lg hover:bg-slate-800 transition-all">
+                    CEK FITUR LENGKAP
+                </a>
+            </div>
         </div>
     </section>
 
-    <section id="pricing" class="py-24 px-4 bg-slate-900/30">
+    <!-- Master Features Grid -->
+    <section id="features" class="py-24 px-6 bg-slate-900/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16 text-center">
+                <h2 class="text-4xl font-black uppercase italic text-white mb-4">Fitur Unggulan Patch</h2>
+                <p class="text-slate-500">Kualitas terbaik dengan detail yang belum pernah ada sebelumnya</p>
+                <div class="h-1.5 w-24 bg-red-600 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Core 1 -->
+                <div class="feature-card p-8 rounded-[2.5rem]">
+                    <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center text-red-500 mb-6"><i data-lucide="refresh-cw"></i></div>
+                    <h3 class="font-black text-white uppercase mb-2">Winter Transfer</h3>
+                    <p class="text-slate-500 text-sm">Full update bursa transfer musim dingin 25/26 paling akurat.</p>
+                </div>
+                <!-- Core 2 -->
+                <div class="feature-card p-8 rounded-[2.5rem]">
+                    <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center text-blue-500 mb-6"><i data-lucide="user-check"></i></div>
+                    <h3 class="font-black text-white uppercase mb-2">Premium Faces</h3>
+                    <p class="text-slate-500 text-sm">Ribuan Face premium & Real Face Full Liga 1 BRI terbaru.</p>
+                </div>
+                <!-- Core 3 -->
+                <div class="feature-card p-8 rounded-[2.5rem] relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-red-600 text-[8px] font-black px-2 py-1 rounded">HOT</div>
+                    <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center text-green-500 mb-6"><i data-lucide="mic"></i></div>
+                    <h3 class="font-black text-white uppercase mb-2">Komentator Indo</h3>
+                    <p class="text-slate-500 text-sm">Versi Demo Komentator Bahasa Indonesia untuk atmosfer lokal.</p>
+                </div>
+                <!-- Core 4 -->
+                <div class="feature-card p-8 rounded-[2.5rem]">
+                    <div class="w-12 h-12 bg-yellow-600/20 rounded-xl flex items-center justify-center text-yellow-500 mb-6"><i data-lucide="trophy"></i></div>
+                    <h3 class="font-black text-white uppercase mb-2">Real Trophy</h3>
+                    <p class="text-slate-500 text-sm">Model piala asli untuk semua kompetisi termasuk Conference League.</p>
+                </div>
+            </div>
+
+            <!-- Additional Detail Features -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-3xl border border-slate-800 flex items-center gap-4">
+                    <i data-lucide="languages" class="text-red-500"></i>
+                    <span class="font-bold text-sm">Full Bahasa Indonesia Menu</span>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-3xl border border-slate-800 flex items-center gap-4">
+                    <i data-lucide="shirt" class="text-red-500"></i>
+                    <span class="font-bold text-sm">Kits Kualitas Premium 4K</span>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-3xl border border-slate-800 flex items-center gap-4">
+                    <i data-lucide="door-open" class="text-red-500"></i>
+                    <span class="font-bold text-sm">New Scene Prematch Locker Room</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams & Leagues Section -->
+    <section id="teams" class="py-24 px-6 bg-slate-950">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <!-- Fantasy Universe -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-2 h-10 bg-red-600"></div>
+                        <h2 class="text-2xl font-black uppercase italic text-white">Fantasy Universe</h2>
+                    </div>
+                    <div class="bg-slate-900/40 rounded-[2.5rem] border border-slate-800 p-8 space-y-3">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-red-600/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-black uppercase">Dragonball FC</span>
+                            <span class="bg-red-600/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-black uppercase">One Piece (New)</span>
+                            <span class="bg-red-600/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-black uppercase">Marvel Avenger</span>
+                            <span class="bg-red-600/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-black uppercase">Mobile Legend FC</span>
+                            <span class="bg-red-600/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-black uppercase">Tsubasa FC</span>
+                            <span class="bg-red-600/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-black uppercase">Jump Force FC</span>
+                            <span class="bg-red-600/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-black uppercase">FIFA Street</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 mt-4">
+                            <p class="text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest text-center">Lainnya:</p>
+                            <ul class="text-[11px] font-bold text-slate-400 grid grid-cols-2 gap-2 text-center uppercase">
+                                <li>All Universe 1-3</li>
+                                <li>Gepeng FC</li>
+                                <li>Indonesia Pride</li>
+                                <li>Kuda Pony FC</li>
+                                <li>Loli FC</li>
+                                <li>MC FC</li>
+                                <li>Tawheed FC</li>
+                                <li>WWE FC</li>
+                                <li>Raptorstrike FC</li>
+                                <li>Warriors (New)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Classic Era -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-2 h-10 bg-slate-500"></div>
+                        <h2 class="text-2xl font-black uppercase italic text-white">Classic Era</h2>
+                    </div>
+                    <div class="bg-slate-900/40 rounded-[2.5rem] border border-slate-800 p-8">
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="flex items-center gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                <i data-lucide="history" class="w-4 h-4 text-slate-500"></i>
+                                <span class="text-xs font-black uppercase text-white">National: Brazil 06, Italy 06, Spain 10</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                <i data-lucide="history" class="w-4 h-4 text-slate-500"></i>
+                                <span class="text-xs font-black uppercase text-white">Milan, Arsenal, Roma, Atl Classic</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                <i data-lucide="history" class="w-4 h-4 text-slate-500"></i>
+                                <span class="text-xs font-black uppercase text-white">United 99 & 07, Madrid Classic</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                <i data-lucide="history" class="w-4 h-4 text-slate-500"></i>
+                                <span class="text-xs font-black uppercase text-white">Mancity 12, Liverpool, Inter Classic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leagues & Stadiums -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-2 h-10 bg-green-600"></div>
+                        <h2 class="text-2xl font-black uppercase italic text-white">Leagues & Maps</h2>
+                    </div>
+                    <div class="bg-slate-900/40 rounded-[2.5rem] border border-slate-800 p-8 space-y-6">
+                        <div>
+                            <p class="text-[10px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em]">New Leagues:</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center justify-between text-xs font-bold text-slate-300">
+                                    LIGA 1 BRI <span class="text-[8px] bg-green-600 text-white px-1.5 py-0.5 rounded">FULL FACE</span>
+                                </li>
+                                <li class="flex items-center justify-between text-xs font-bold text-slate-300">
+                                    LIGA 2 PEGADAIAN <span>LIGA 3 NUSANTARA</span>
+                                </li>
+                                <li class="flex items-center justify-between text-xs font-bold text-slate-300">
+                                    SAUDI PRO LEAGUE <span>MALAYSIA SUPER</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pt-6 border-t border-slate-800">
+                            <p class="text-[10px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em]">Fantasy Stadiums:</p>
+                            <div class="flex gap-2">
+                                <span class="text-xs font-black text-white bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">Lapangan Daeng Gassing</span>
+                                <span class="text-xs font-black text-white bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">Land of Dawn</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-6 bg-slate-900/20">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-black mb-4 uppercase italic text-white">Pilih Platform Anda</h2>
-                <div class="h-1 w-20 bg-red-600 mx-auto"></div>
+                <h2 class="text-4xl font-black uppercase italic text-white mb-4">Pilih Platform</h2>
+                <div class="h-1.5 w-24 bg-red-600 mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="group relative bg-slate-950 border-2 border-red-600 rounded-[2rem] p-10 transition-all flex flex-col shadow-2xl shadow-red-600/10">
-                    <div class="absolute -top-4 right-10 bg-red-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">Recommended</div>
-                    <div class="mb-10">
-                        <div class="p-3 rounded-2xl bg-slate-900 inline-block mb-4 text-red-500"><i data-lucide="monitor"></i></div>
-                        <h3 class="text-3xl font-black mb-2 uppercase text-white">PC VERSION</h3>
-                        <p class="text-slate-500 text-sm">Patch paling lengkap khusus PC dengan pembaruan rutin.</p>
+                <!-- PC VERSION -->
+                <div class="group relative bg-slate-900 border-2 border-red-600 rounded-[3rem] p-10 transition-all hover:translate-y-[-10px] shadow-2xl shadow-red-600/10">
+                    <div class="absolute -top-4 right-10 bg-red-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">Most Complete</div>
+                    <div class="mb-10 text-center">
+                        <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-red-500"><i data-lucide="monitor" class="w-8 h-8"></i></div>
+                        <h3 class="text-3xl font-black text-white italic">PC VERSION</h3>
                     </div>
-                    <div class="mb-10">
-                        <span class="text-5xl font-black text-white">Rp 200.000</span>
-                        <p class="text-slate-500 text-xs mt-2 font-bold uppercase tracking-widest">Sekali Bayar</p>
+                    <div class="mb-10 text-center">
+                        <span class="text-5xl font-black text-white tracking-tighter">Rp 200.000</span>
+                        <p class="text-slate-500 text-xs mt-2 font-black uppercase">One Time Payment / Lifetime</p>
                     </div>
-                    <ul class="space-y-5 mb-12 flex-grow">
-                        <li class="flex items-center gap-4 text-slate-300 font-medium text-sm"><i data-lucide="check-circle-2" class="text-red-500 w-4 h-4"></i> Free Update 1 Tahun Full</li>
-                        <li class="flex items-center gap-4 text-slate-300 font-medium text-sm"><i data-lucide="check-circle-2" class="text-red-500 w-4 h-4"></i> Update Transfer 24/25</li>
-                        <li class="flex items-center gap-4 text-slate-300 font-medium text-sm"><i data-lucide="check-circle-2" class="text-red-500 w-4 h-4"></i> Grafik Ultra HD</li>
-                    </ul>
-                    <button onclick="openModal()" class="w-full py-5 rounded-2xl font-black text-lg transition-all bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/20 flex items-center justify-center gap-3">
-                        Beli Sekarang <i data-lucide="shopping-bag"></i>
+                    <button onclick="openModal()" class="w-full py-6 rounded-2xl font-black text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/40 flex items-center justify-center gap-3 transition-all active:scale-95">
+                        ORDER SEKARANG <i data-lucide="shopping-bag"></i>
                     </button>
                 </div>
 
-                <div class="group relative bg-slate-950 border-2 border-slate-800 rounded-[2rem] p-10 transition-all flex flex-col">
-                    <div class="mb-10">
-                        <div class="p-3 rounded-2xl bg-slate-900 inline-block mb-4 text-slate-500"><i data-lucide="gamepad-2"></i></div>
-                        <h3 class="text-3xl font-black mb-2 uppercase text-white">PS4 HEN VERSION</h3>
-                        <p class="text-slate-500 text-sm">Versi stabil khusus konsol PS4 HEN dengan format PKG.</p>
+                <!-- PS4 HEN -->
+                <div class="group relative bg-slate-950 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-slate-700">
+                    <div class="mb-10 text-center">
+                        <div class="p-4 rounded-2xl bg-slate-900 inline-block mb-4 text-slate-500"><i data-lucide="gamepad-2" class="w-8 h-8"></i></div>
+                        <h3 class="text-3xl font-black text-white italic">PS4 HEN</h3>
                     </div>
-                    <div class="mb-10">
-                        <span class="text-5xl font-black text-white">Rp 350.000</span>
-                        <p class="text-slate-500 text-xs mt-2 font-bold uppercase tracking-widest">Sekali Bayar</p>
+                    <div class="mb-10 text-center">
+                        <span class="text-5xl font-black text-white tracking-tighter">Rp 350.000</span>
+                        <p class="text-slate-500 text-xs mt-2 font-black uppercase tracking-widest text-center">Flashdisk Original Incl.</p>
                     </div>
-                    <ul class="space-y-5 mb-12 flex-grow">
-                        <li class="flex items-center gap-4 text-slate-300 font-medium text-sm"><i data-lucide="check-circle-2" class="text-slate-500 w-4 h-4"></i> Kompatibel Semua Versi</li>
-                        <li class="flex items-center gap-4 text-slate-300 font-medium text-sm"><i data-lucide="check-circle-2" class="text-slate-500 w-4 h-4"></i> Transaksi Aman via Shopee</li>
-                    </ul>
-                    <a href="https://s.shopee.co.id/5Anse4ofFA" target="_blank" class="w-full py-5 rounded-2xl font-black text-lg transition-all bg-white hover:bg-slate-200 text-black flex items-center justify-center gap-3 text-center">
-                        Order via Shopee <i data-lucide="arrow-right"></i>
+                    <a href="https://s.shopee.co.id/5Anse4ofFA" target="_blank" class="w-full py-6 rounded-2xl font-black text-lg bg-white hover:bg-slate-200 text-black flex items-center justify-center gap-3 transition-all active:scale-95">
+                        VIA SHOPEE <i data-lucide="external-link"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="modal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4">
-        <div class="fixed inset-0 bg-slate-950/98 backdrop-blur-xl" onclick="closeModal()"></div>
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-[2.5rem] p-8 md:p-10 relative z-10 shadow-2xl">
-            <h2 class="text-3xl font-black uppercase italic mb-6 text-white">Detail Pesanan PC</h2>
-            <div class="space-y-4">
-                <input id="name" type="text" placeholder="Nama Lengkap" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:border-red-500 outline-none font-bold text-sm text-white">
-                <input id="email" type="email" placeholder="Email (Gmail)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:border-red-500 outline-none font-bold text-sm text-white">
+    <!-- Modal Order -->
+    <div id="modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-6">
+        <div class="fixed inset-0 bg-slate-950/90 backdrop-blur-xl" onclick="closeModal()"></div>
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-[2.5rem] p-8 md:p-12 relative z-10 shadow-2xl">
+            <h2 class="text-3xl font-black uppercase italic mb-8 text-white">Detail Pesanan</h2>
+            <div class="space-y-6">
+                <div>
+                    <label class="text-[10px] font-black text-slate-500 uppercase ml-2 mb-2 block">Nama Lengkap</label>
+                    <input id="name" type="text" placeholder="Masukkan nama..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4 focus:border-red-500 outline-none font-bold text-white transition-all">
+                </div>
+                <div>
+                    <label class="text-[10px] font-black text-slate-500 uppercase ml-2 mb-2 block">Email Aktif</label>
+                    <input id="email" type="email" placeholder="contoh@gmail.com" class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4 focus:border-red-500 outline-none font-bold text-white transition-all">
+                </div>
                 
-                <div class="bg-slate-950 p-5 rounded-3xl border border-slate-800">
-                    <p class="text-[10px] font-black text-slate-500 uppercase mb-2">Transfer ke SeaBank:</p>
-                    <p class="text-xl font-bold text-white tracking-widest">901397995339</p>
-                    <p class="text-xs text-slate-400">a/n DEDI WAHYUDI</p>
+                <div class="bg-slate-950 p-6 rounded-3xl border border-slate-800">
+                    <p class="text-[10px] font-black text-slate-500 uppercase mb-3">Transfer SeaBank (Kirim Bukti di WA)</p>
+                    <p id="acc-number" class="text-2xl font-black text-white tracking-[0.1em] mb-1">901397995339</p>
+                    <p class="text-sm font-bold text-slate-400 uppercase">A/N DEDI WAHYUDI</p>
                 </div>
 
-                <button onclick="sendWA()" class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-black text-md flex items-center justify-center gap-3">
-                    Konfirmasi via WhatsApp
+                <button onclick="sendWA()" class="w-full bg-green-600 hover:bg-green-700 text-white py-6 rounded-2xl font-black text-lg flex items-center justify-center gap-3 transition-all">
+                    KONFIRMASI WHATSAPP <i data-lucide="message-circle"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <footer class="py-20 px-4 bg-slate-950 text-center border-t border-slate-900">
-        <p class="text-slate-600 text-sm italic">&copy; 2026 DEDI WAHYUDI - DAENG PATCH STUDIO</p>
+    <!-- Footer -->
+    <footer class="py-20 px-6 bg-slate-950 text-center border-t border-slate-900">
+        <div class="mb-10 flex justify-center gap-8">
+            <a href="#" class="text-slate-500 hover:text-red-600 transition-colors"><i data-lucide="youtube"></i></a>
+            <a href="#" class="text-slate-500 hover:text-red-600 transition-colors"><i data-lucide="instagram"></i></a>
+            <a href="#" class="text-slate-500 hover:text-red-600 transition-colors"><i data-lucide="facebook"></i></a>
+        </div>
+        <p class="text-slate-700 text-xs font-black uppercase tracking-[0.5em]">&copy; 2026 DAENG PATCH STUDIO - ALL RIGHTS RESERVED</p>
     </footer>
 
     <script>
-        // Inisialisasi Ikon
         lucide.createIcons();
 
-        function openModal() { document.getElementById('modal').classList.remove('hidden'); }
-        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openModal() {
+            document.getElementById('modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
 
         function sendWA() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            const msg = `Halo Admin DAENG PATCH,%0A%0ASaya ingin memesan versi *PC VERSION*%0A*Nama:* ${name}%0A*Gmail:* ${email}%0A%0ASaya akan mengirim bukti transfer senilai Rp 200.000.`;
+            
+            if(!name || !email) {
+                alert('Harap isi Nama dan Email Anda!');
+                return;
+            }
+
+            const msg = `Halo Admin DAENG PATCH,%0A%0ASaya ingin memesan *PC VERSION (Winter 25/26 Update)*%0A*Nama:* ${name}%0A*Email:* ${email}%0A%0ASaya sudah transfer ke SeaBank. Mohon bantuannya admin!`;
             window.open(`https://wa.me/6287777747477?text=${msg}`, '_blank');
         }
     </script>
