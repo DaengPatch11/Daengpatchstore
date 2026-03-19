@@ -1,0 +1,344 @@
+import React, { useState } from 'react';
+import { 
+  ShieldCheck, 
+  Download, 
+  Gamepad2, 
+  Zap, 
+  MessageCircle, 
+  CheckCircle2, 
+  Copy, 
+  X,
+  CreditCard,
+  ShoppingBag,
+  Info,
+  Star,
+  ArrowRight,
+  Monitor,
+  Mail
+} from 'lucide-react';
+
+const App = () => {
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    whatsapp: '',
+    email: '',
+    package: 'PC VERSION'
+  });
+
+  const adminWA = "+6287777747477";
+  const bankInfo = {
+    bank: "SeaBank",
+    accNumber: "901397995339",
+    name: "DEDI WAHYUDI"
+  };
+
+  const pricingOptions = [
+    {
+      name: "PC VERSION",
+      price: "Rp 200.000",
+      desc: "Patch paling lengkap khusus PC dengan pembaruan rutin.",
+      features: [
+        "Free Update Selama 1 Tahun Full",
+        "Update Transfer Musim 24/25",
+        "Grafik Ultra HD & Face Realistis",
+        "Instalasi Mudah & Support Admin",
+        "Metode: Transfer Bank & WA"
+      ],
+      popular: true,
+      type: "whatsapp",
+      icon: <Monitor className="w-6 h-6" />
+    },
+    {
+      name: "PS4 HEN VERSION",
+      price: "Rp 350.000",
+      desc: "Versi stabil khusus konsol PS4 HEN dengan format PKG.",
+      features: [
+        "Kompatibel Semua Versi PS4 HEN",
+        "Update Database Terbaru",
+        "File PKG Siap Install",
+        "Transaksi Aman via Shopee",
+        "Panduan Video Lengkap"
+      ],
+      popular: false,
+      type: "shopee",
+      link: "https://s.shopee.co.id/5Anse4ofFA",
+      icon: <Gamepad2 className="w-6 h-6" />
+    }
+  ];
+
+  const handleOrderAction = (option) => {
+    if (option.type === "shopee") {
+      window.open(option.link, '_blank');
+    } else {
+      setFormData({ ...formData, package: option.name });
+      setShowCheckout(true);
+    }
+  };
+
+  const copyToClipboard = () => {
+    const el = document.createElement('textarea');
+    el.value = bankInfo.accNumber;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleWhatsAppOrder = (e) => {
+    e.preventDefault();
+    const message = `Halo Admin DAENG PATCH,%0A%0ASaya ingin memesan versi berikut:%0A*Paket:* ${formData.package}%0A*Nama:* ${formData.name}%0A*WA:* ${formData.whatsapp}%0A*Gmail:* ${formData.email}%0A%0ASaya akan segera mengirim bukti transfer senilai Rp 200.000 ke SeaBank ${bankInfo.accNumber} a/n ${bankInfo.name}. Mohon segera diproses untuk akses file dan update 1 tahunnya.`;
+    window.open(`https://wa.me/${adminWA}?text=${message}`, '_blank');
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-red-500/30">
+      {/* Navbar */}
+      <nav className="fixed top-0 w-full z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center font-bold text-lg">D</div>
+            <span className="font-black text-xl tracking-tighter text-white uppercase italic">DAENG <span className="text-red-500">PATCH</span></span>
+          </div>
+          <div className="hidden md:flex items-center gap-8 text-xs font-black uppercase tracking-widest text-slate-400">
+            <a href="#features" className="hover:text-white transition-colors">Fitur</a>
+            <a href="#pricing" className="hover:text-white transition-colors">Order</a>
+          </div>
+          <a 
+            href={`https://wa.me/${adminWA}`}
+            className="hidden sm:flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2 rounded-full text-xs font-bold hover:bg-slate-800 transition-all"
+          >
+            <MessageCircle size={14} className="text-green-500" /> Chat Admin
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-red-600/10 blur-[120px] rounded-full -z-10"></div>
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-block bg-red-600/10 border border-red-600/20 text-red-500 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+            Pioneer of Game Modding
+          </div>
+          <h1 className="text-5xl md:text-8xl font-black mb-6 leading-none italic tracking-tighter uppercase">
+            Next Gen <br />
+            <span className="text-red-600">Experience</span>
+          </h1>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg mb-12 font-medium">
+            Tingkatkan kualitas permainan Anda dengan patch terbaik yang didesain khusus untuk PC dan PS4 HEN. Update transfer, wajah, dan atmosfer stadion secara instan.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="#pricing" className="bg-white text-black px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-xl shadow-white/5">
+              MULAI ORDER
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-24 px-4 bg-slate-900/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black mb-4 uppercase italic">Pilih Platform Anda</h2>
+            <div className="h-1 w-20 bg-red-600 mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {pricingOptions.map((opt, i) => (
+              <div 
+                key={i} 
+                className={`group relative bg-slate-950 border-2 rounded-[2rem] p-10 transition-all flex flex-col ${
+                  opt.popular ? 'border-red-600 shadow-2xl shadow-red-600/10' : 'border-slate-800'
+                }`}
+              >
+                {opt.popular && (
+                  <div className="absolute -top-4 right-10 bg-red-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
+                    Recommended
+                  </div>
+                )}
+                
+                <div className="mb-10 flex items-start justify-between">
+                  <div>
+                    <div className={`p-3 rounded-2xl bg-slate-900 inline-block mb-4 ${opt.popular ? 'text-red-500' : 'text-slate-500'}`}>
+                      {opt.icon}
+                    </div>
+                    <h3 className="text-3xl font-black mb-2 uppercase">{opt.name}</h3>
+                    <p className="text-slate-500 text-sm">{opt.desc}</p>
+                  </div>
+                </div>
+
+                <div className="mb-10">
+                  <span className="text-5xl font-black text-white">{opt.price}</span>
+                  <p className="text-slate-500 text-xs mt-2 font-bold uppercase tracking-widest">Sekali Bayar</p>
+                </div>
+
+                <div className="h-px bg-slate-900 w-full mb-10"></div>
+
+                <ul className="space-y-5 mb-12 flex-grow">
+                  {opt.features.map((feat, idx) => (
+                    <li key={idx} className="flex items-center gap-4 text-slate-300 font-medium text-sm">
+                      <div className={`p-1 rounded-full ${opt.popular ? 'bg-red-600/20 text-red-500' : 'bg-slate-800 text-slate-500'}`}>
+                        <CheckCircle2 size={14} />
+                      </div>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                <button 
+                  onClick={() => handleOrderAction(opt)}
+                  className={`w-full py-5 rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 ${
+                    opt.popular 
+                    ? 'bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/20' 
+                    : 'bg-white hover:bg-slate-200 text-black'
+                  }`}
+                >
+                  {opt.type === "shopee" ? (
+                    <>Order via Shopee <ArrowRight size={20} /></>
+                  ) : (
+                    <>Beli Sekarang <ShoppingBag size={20} /></>
+                  )}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Banner */}
+      <section className="py-16 bg-red-600">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+          <div className="flex items-center gap-6">
+            <ShieldCheck size={48} className="opacity-50" />
+            <div>
+              <h4 className="text-2xl font-black uppercase italic leading-none mb-2">Terjamin & Terpercaya</h4>
+              <p className="text-white/70 font-medium">Ribuan user telah menggunakan patch kami setiap musim.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="text-right hidden md:block">
+              <p className="text-sm font-bold uppercase opacity-60">Admin Support</p>
+              <p className="text-xl font-black">0877-7774-7477</p>
+            </div>
+            <a href={`https://wa.me/${adminWA}`} className="bg-black text-white px-8 py-4 rounded-xl font-black text-sm uppercase hover:bg-slate-900 transition-all">
+              Hubungi Admin
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-20 px-4 bg-slate-950 text-center border-t border-slate-900">
+        <div className="flex items-center justify-center gap-2 mb-8">
+          <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center font-bold text-lg">D</div>
+          <span className="font-black text-2xl tracking-tighter uppercase italic">DAENG <span className="text-red-500">PATCH</span></span>
+        </div>
+        <p className="text-slate-600 text-sm max-w-md mx-auto mb-10">
+          Modifikasi game berkualitas tinggi untuk pengalaman bermain yang lebih nyata. Dibuat dengan dedikasi untuk komunitas pecinta game sepakbola.
+        </p>
+        <div className="text-slate-700 text-[10px] font-black uppercase tracking-[0.3em]">
+          &copy; 2026 DEDI WAHYUDI - DAENG PATCH STUDIO
+        </div>
+      </footer>
+
+      {/* PC Version Checkout Modal */}
+      {showCheckout && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 overflow-y-auto pt-10 pb-10">
+          <div className="fixed inset-0 bg-slate-950/98 backdrop-blur-xl" onClick={() => setShowCheckout(false)}></div>
+          <div className="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-[2.5rem] overflow-hidden relative shadow-2xl animate-in fade-in zoom-in duration-300">
+            <button 
+              onClick={() => setShowCheckout(false)}
+              className="absolute top-6 right-6 p-2 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-400 transition-colors z-10"
+            >
+              <X size={20} />
+            </button>
+            
+            <div className="p-8 md:p-10">
+              <div className="mb-8">
+                <span className="text-[10px] font-black text-red-500 uppercase tracking-widest bg-red-500/10 px-3 py-1 rounded-full mb-3 inline-block">Order PC Version</span>
+                <h2 className="text-3xl font-black uppercase italic leading-none">Detail Pesanan</h2>
+              </div>
+              
+              <form onSubmit={handleWhatsAppOrder} className="space-y-4">
+                <div className="grid grid-cols-1 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Nama Lengkap</label>
+                    <input 
+                      required
+                      type="text" 
+                      className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:border-red-500 outline-none transition-all font-bold text-sm"
+                      placeholder="Contoh: Budi Santoso"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Nomor WhatsApp</label>
+                    <input 
+                      required
+                      type="tel" 
+                      className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:border-red-500 outline-none transition-all font-bold text-sm"
+                      placeholder="08xxxxxxxxxx"
+                      value={formData.whatsapp}
+                      onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Email / Gmail</label>
+                    <input 
+                      required
+                      type="email" 
+                      className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 focus:border-red-500 outline-none transition-all font-bold text-sm"
+                      placeholder="emailanda@gmail.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    />
+                  </div>
+                </div>
+
+                <div className="bg-slate-950 p-5 rounded-3xl border border-slate-800 relative overflow-hidden group mt-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Tujuan: {bankInfo.bank}</span>
+                    <button 
+                      type="button" 
+                      onClick={copyToClipboard}
+                      className={`text-[9px] px-3 py-1.5 rounded-full font-black uppercase transition-all flex items-center gap-2 ${
+                        copied ? 'bg-green-600 text-white' : 'bg-red-600 text-white hover:bg-red-700'
+                      }`}
+                    >
+                      {copied ? <CheckCircle2 size={10} /> : <Copy size={10} />}
+                      {copied ? 'Copied' : 'Copy Rekening'}
+                    </button>
+                  </div>
+                  <p className="text-xl font-black tracking-[0.1em] text-white mb-1 font-mono">{bankInfo.accNumber}</p>
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">a/n {bankInfo.name}</p>
+                </div>
+
+                <div className="bg-slate-800/50 p-4 rounded-xl flex items-start gap-3">
+                  <Info size={14} className="text-red-500 mt-0.5 flex-shrink-0" />
+                  <p className="text-[10px] text-slate-400 leading-relaxed">
+                    Silakan transfer <span className="text-white font-bold">Rp 200.000</span>. Klik tombol di bawah untuk konfirmasi. Kami butuh <span className="text-white font-bold">Gmail</span> Anda untuk memberikan akses file.
+                  </p>
+                </div>
+
+                <button 
+                  type="submit"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-black text-md flex items-center justify-center gap-3 transition-all shadow-xl shadow-green-600/10 mt-2"
+                >
+                  <MessageCircle size={20} /> Konfirmasi & Kirim Bukti
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
