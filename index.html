@@ -36,6 +36,29 @@
         /* Gallery Image Hover */
         .gallery-img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
         .gallery-item:hover .gallery-img { transform: scale(1.1); }
+
+        /* Product Preview Modal */
+        .preview-modal { display: none; position: fixed; inset: 0; z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
+        .preview-modal.open { display: flex; }
+        .preview-modal-inner { background: #0f172a; border: 1px solid #1e293b; border-radius: 2rem; width: 100%; max-width: 680px; max-height: 90vh; overflow-y: auto; padding: 2rem; position: relative; z-index: 10; }
+        .preview-modal-inner::-webkit-scrollbar { width: 4px; }
+        .preview-modal-inner::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        .preview-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); }
+
+        /* Product Preview Thumbnails */
+        .preview-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 1rem; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .preview-thumb:hover, .preview-thumb.active { border-color: #ef4444; }
+        .preview-thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+
+        /* Main preview area */
+        .preview-main { width: 100%; aspect-ratio: 16/9; border-radius: 1rem; overflow: hidden; background: #020617; position: relative; }
+        .preview-main img { width: 100%; height: 100%; object-fit: cover; }
+        .preview-main iframe { width: 100%; height: 100%; border: none; }
+        .preview-media-type-badge { position: absolute; top: 8px; left: 8px; background: rgba(239,68,68,0.9); color: white; font-size: 9px; font-weight: 900; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        /* Product card preview button */
+        .btn-preview { display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%; padding: 12px; border-radius: 1rem; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; margin-bottom: 12px; border: 1.5px solid rgba(239,68,68,0.3); color: #ef4444; background: rgba(239,68,68,0.07); transition: all 0.2s; }
+        .btn-preview:hover { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.6); }
         
         /* Skeleton Loading Effect */
         .loading-skeleton {
@@ -414,15 +437,29 @@
                 <!-- Naruto -->
                 <div class="group relative bg-slate-900 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-red-600/50 hover:translate-y-[-10px]">
                     <div class="absolute -top-4 right-10 bg-orange-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">POPULAR</div>
-                    <div class="mb-10 text-center">
+                    <div class="mb-6 text-center">
                         <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-orange-500"><i data-lucide="zap" class="w-8 h-8"></i></div>
                         <h3 class="text-2xl font-black text-white italic tracking-tighter uppercase leading-tight">NARUTO X BORUTO <br/> STORM CONNECTIONS</h3>
                         <p class="text-red-500 text-[10px] font-black mt-2 uppercase tracking-widest">MOD BAHASA INDONESIA</p>
                     </div>
-                    <div class="mb-10 text-center">
+                    <!-- DESKRIPSI PRODUK -->
+                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-slate-800/60">
+                        <p class="text-[10px] font-black text-orange-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
+                        <p class="text-slate-400 text-xs leading-relaxed">Mod Bahasa Indonesia untuk Naruto x Boruto Storm Connections di PS4 HEN. Semua teks dalam game, subtitle cutscene, dan menu sudah diterjemahkan ke Bahasa Indonesia. Cocok untuk yang kesulitan memahami Bahasa Inggris.</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Full Text Indo</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Subtitle Cutscene</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ PS4 HEN</span>
+                        </div>
+                    </div>
+                    <div class="mb-8 text-center">
                         <span class="text-5xl font-black text-white tracking-tighter">Rp 50.000</span>
                         <p class="text-slate-500 text-[10px] mt-4 font-black uppercase tracking-widest leading-relaxed">Full Text & Subtitle <br/> Indonesia Version</p>
                     </div>
+                    <!-- TOMBOL PREVIEW -->
+                    <button class="btn-preview" onclick="openPreview('naruto')">
+                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
+                    </button>
                     <button onclick="orderWA('Naruto Boruto Connections Mod Indo')" class="w-full py-5 rounded-2xl font-black text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/40 flex items-center justify-center gap-3 transition-all active:scale-95">
                         ORDER NOW <i data-lucide="shopping-bag"></i>
                     </button>
@@ -431,15 +468,33 @@
                 <!-- GTA 5 -->
                 <div class="group relative bg-slate-900 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-red-600/50 hover:translate-y-[-10px]">
                     <div class="absolute -top-4 right-10 bg-green-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">BEST MOD</div>
-                    <div class="mb-10 text-center">
+                    <div class="mb-6 text-center">
                         <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-green-500"><i data-lucide="layout" class="w-8 h-8"></i></div>
                         <h3 class="text-2xl font-black text-white italic tracking-tighter uppercase leading-tight">GTA 5 MOD <br/> INDONESIA BUNDLE</h3>
-                        <p class="text-red-500 text-[10px] font-black mt-2 uppercase tracking-widest">MOD MENU + TEXTURE</p>
+                        <p class="text-red-500 text-[10px] font-black mt-2 uppercase tracking-widest">MOD MENU + NUANSA INDONESIA</p>
                     </div>
-                    <div class="mb-10 text-center">
-                        <span class="text-5xl font-black text-white tracking-tighter">Rp 100.000</span>
-                        <p class="text-slate-500 text-[10px] mt-4 font-black uppercase tracking-widest leading-relaxed">Bahasa Indo + Menu Cheat <br/> + New Texture</p>
+                    <!-- DESKRIPSI PRODUK -->
+                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-slate-800/60">
+                        <p class="text-[10px] font-black text-green-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
+                        <p class="text-slate-400 text-xs leading-relaxed">GTA 5 Rasa Indonesia untuk PS4 HEN! 🎮🔥
+
+Rasakan sensasi keliling Los Santos dengan kearifan lokal! Bundle Mod super lengkap ini menghadirkan khas Indonesia (mulai dari kendaraan,hingga lingkungan sekitar), patch Bahasa Indonesia, dan Mod Menu Cheat terlengkap.
+
+Siap-siap buat pengalaman bermain GTA 5 jadi berkali-kali lipat lebih seru dan Indonesia banget!</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Mod Menu</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Texture Indo</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Bahasa Indo</span>
+                        </div>
                     </div>
+                    <div class="mb-8 text-center">
+                        <span class="text-5xl font-black text-white tracking-tighter">Rp 150.000</span>
+                        <p class="text-slate-500 text-[10px] mt-4 font-black uppercase tracking-widest leading-relaxed">Bahasa Indo + Menu Cheat <br/> + KENDARAAN INDONESIA</p>
+                    </div>
+                    <!-- TOMBOL PREVIEW -->
+                    <button class="btn-preview" onclick="openPreview('gta5')">
+                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
+                    </button>
                     <button onclick="orderWA('GTA 5 Mod Indo + Mod Menu')" class="w-full py-5 rounded-2xl font-black text-lg bg-white hover:bg-slate-200 text-black shadow-xl flex items-center justify-center gap-3 transition-all active:scale-95">
                         ORDER NOW <i data-lucide="shopping-bag"></i>
                     </button>
@@ -448,15 +503,32 @@
                 <!-- PES 2018 -->
                 <div class="group relative bg-slate-900 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-red-600/50 hover:translate-y-[-10px] shadow-2xl shadow-red-600/5">
                     <div class="absolute -top-4 right-10 bg-red-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg italic">NEW SEASON</div>
-                    <div class="mb-10 text-center">
+                    <div class="mb-6 text-center">
                         <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-red-500"><i data-lucide="trophy" class="w-8 h-8"></i></div>
                         <h3 class="text-2xl font-black text-white italic tracking-tighter uppercase leading-tight">PES 2018 <br/> SEASON 2026</h3>
                         <p class="text-red-500 text-[10px] font-black mt-2 uppercase tracking-widest">LATEST UPDATE PS4 HEN</p>
                     </div>
-                    <div class="mb-10 text-center">
+                    <!-- DESKRIPSI PRODUK -->
+                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-slate-800/60">
+                        <p class="text-[10px] font-black text-red-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
+                        <p class="text-slate-400 text-xs leading-relaxed">Yang punya PS4 HEN merapat! Ada Update Terbaru PES 2018 untuk musim 2026 nih.
+
+Gak cuma menang di update pemain dan baju baru, patch ini juga membawakan Gameplay ala PS3. Karakter permainan jadi lebih solid, warna rumput pas (gak bikin sakit mata), dan pastinya gameplay terasa sangat smooth dan responsif saat dimainkan! Plus, kalau kalian juara Liga Inggris, pialanya sudah pakai Real Trophy Premier League yang asli!!</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Transfer 2026</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Kits Terbaru</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ HD Face</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ PS4 HEN</span>
+                        </div>
+                    </div>
+                    <div class="mb-8 text-center">
                         <span class="text-5xl font-black text-white tracking-tighter">Rp 150.000</span>
                         <p class="text-slate-500 text-[10px] mt-4 font-black uppercase tracking-widest leading-relaxed">Transfer 2026 + Kits <br/> + HD Face Update</p>
                     </div>
+                    <!-- TOMBOL PREVIEW -->
+                    <button class="btn-preview" onclick="openPreview('pes2018')">
+                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
+                    </button>
                     <button onclick="orderWA('PES 2018 Season 2026')" class="w-full py-5 rounded-2xl font-black text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/40 flex items-center justify-center gap-3 transition-all active:scale-95">
                         ORDER NOW <i data-lucide="shopping-bag"></i>
                     </button>
@@ -477,14 +549,29 @@
                 <!-- VERSI PC -->
                 <div class="group relative bg-slate-900 border-2 border-red-600 rounded-[3rem] p-10 transition-all hover:translate-y-[-10px] shadow-2xl shadow-red-600/10">
                     <div class="absolute -top-4 right-10 bg-red-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">RECOMMENDED</div>
-                    <div class="mb-10 text-center">
+                    <div class="mb-6 text-center">
                         <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-red-500"><i data-lucide="monitor" class="w-8 h-8"></i></div>
                         <h3 class="text-3xl font-black text-white italic tracking-tighter uppercase">PES 2026 PC VERSION</h3>
                     </div>
-                    <div class="mb-10 text-center">
+                    <!-- DESKRIPSI PRODUK -->
+                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-red-600/20">
+                        <p class="text-[10px] font-black text-red-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
+                        <p class="text-slate-400 text-xs leading-relaxed">Patch PC terlengkap dan terbaru untuk PES di komputer. Sistem lisensi HWID memastikan keamanan dan eksklusivitas akses. Dapatkan free update selama 1 tahun penuh termasuk update transfer, kits, face pemain, dan fitur baru!</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-red-400">🔐 Sistem HWID</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Free Update 1 Tahun</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Liga Indonesia</span>
+                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Fantasy Team</span>
+                        </div>
+                    </div>
+                    <div class="mb-8 text-center">
                         <span class="text-5xl font-black text-white tracking-tighter">Rp 200.000</span>
                         <p class="text-slate-500 text-[10px] mt-2 font-black uppercase tracking-widest leading-relaxed">Free update 1 tahun full <br/> <span class="text-red-500 italic block mt-1">🔐 Sistem Keamanan HWID</span></p>
                     </div>
+                    <!-- TOMBOL PREVIEW -->
+                    <button class="btn-preview" onclick="openPreview('pes2026pc')">
+                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
+                    </button>
                     <button onclick="openModal()" class="w-full py-6 rounded-2xl font-black text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/40 flex items-center justify-center gap-3 transition-all active:scale-95">
                         ORDER SEKARANG <i data-lucide="shopping-bag"></i>
                     </button>
@@ -492,14 +579,29 @@
 
                 <!-- PS4 HEN (DISK) - Link Shopee dikembalikan di sini -->
                 <div class="group relative bg-slate-950 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-slate-700 hover:translate-y-[-10px]">
-                    <div class="mb-10 text-center">
+                    <div class="mb-6 text-center">
                         <div class="p-4 rounded-2xl bg-slate-900 inline-block mb-4 text-slate-500"><i data-lucide="gamepad-2" class="w-8 h-8"></i></div>
                         <h3 class="text-3xl font-black text-white italic tracking-tighter uppercase">PES 2026 PS4 HEN</h3>
                     </div>
-                    <div class="mb-10 text-center">
+                    <!-- DESKRIPSI PRODUK -->
+                    <div class="mb-6 bg-slate-900 rounded-2xl p-4 border border-slate-800/60">
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Deskripsi Produk</p>
+                        <p class="text-slate-400 text-xs leading-relaxed">Paket lengkap PES 2026 untuk PS4 HEN. Sudah termasuk hardisk 160GB siap install format PKG. Tinggal colok dan main! Gratis update sampai 30 Mei 2026. Semua fitur Daeng Patch sudah tersedia termasuk Liga Indonesia.</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ HDD 160GB</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ Format PKG</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ Siap Install</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ Update s/d Mei 2026</span>
+                        </div>
+                    </div>
+                    <div class="mb-8 text-center">
                         <span class="text-5xl font-black text-white tracking-tighter">Rp 350.000</span>
                         <p class="text-slate-500 text-xs mt-2 font-black uppercase tracking-widest leading-relaxed text-center italic">Sudah termasuk hardisk 160gb siap instal dengan format pkg, <br/> gratis update hingga 30 mei 2026</p>
                     </div>
+                    <!-- TOMBOL PREVIEW -->
+                    <button class="btn-preview" onclick="openPreview('pes2026ps4')">
+                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
+                    </button>
                     <a href="https://s.shopee.co.id/5Anse4ofFA" target="_blank" class="w-full py-6 rounded-2xl font-black text-lg bg-white hover:bg-slate-200 text-black flex items-center justify-center gap-3 transition-all active:scale-95">
                         VIA SHOPEE <i data-lucide="external-link"></i>
                     </a>
@@ -616,6 +718,60 @@
                         KONFIRMASI VIA WHATSAPP <i data-lucide="message-circle" class="w-6 h-6"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- PREVIEW MODAL - Bisa diisi gambar/YouTube per produk    -->
+    <!-- ======================================================= -->
+    <div id="preview-modal" class="preview-modal" role="dialog" aria-modal="true">
+        <div class="preview-modal-bg" onclick="closePreview()"></div>
+        <div class="preview-modal-inner">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <p id="preview-badge" class="text-[9px] font-black text-red-500 uppercase tracking-[0.2em] mb-1"></p>
+                    <h3 id="preview-title" class="text-xl font-black text-white uppercase italic tracking-tighter"></h3>
+                </div>
+                <button onclick="closePreview()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5 text-white"></i>
+                </button>
+            </div>
+
+            <!-- Area Media Utama -->
+            <div class="preview-main mb-4" id="preview-main-area">
+                <div id="preview-main-img-wrap" style="width:100%;height:100%;">
+                    <img id="preview-main-img" src="" alt="Preview" style="width:100%;height:100%;object-fit:cover;display:none;">
+                </div>
+                <div id="preview-main-video-wrap" style="width:100%;height:100%;display:none;">
+                    <iframe id="preview-main-video" src="" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>
+                </div>
+                <div id="preview-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#475569;">
+                    <i data-lucide="image" style="width:40px;height:40px;margin-bottom:8px;opacity:0.4;"></i>
+                    <p style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;opacity:0.5;">Belum ada preview</p>
+                </div>
+            </div>
+
+            <!-- Thumbnail Grid -->
+            <div id="preview-thumb-grid" class="preview-thumb-grid"></div>
+
+            <!-- Deskripsi singkat + tombol order -->
+            <div id="preview-footer" class="mt-6 pt-5 border-t border-slate-800 flex items-center justify-between gap-4">
+                <p id="preview-price" class="text-2xl font-black text-white tracking-tighter"></p>
+                <button id="preview-order-btn" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest transition-all flex items-center gap-2">
+                    ORDER NOW <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- UCAPAN AJAKAN -->
+            <div class="mt-5 p-4 rounded-2xl border border-slate-700/50 bg-slate-900/40 text-center">
+                <p class="text-base mb-1">💬</p>
+                <p class="text-[11px] font-black text-white uppercase tracking-widest mb-1">Ada Pertanyaan?</p>
+                <p class="text-[10px] text-slate-400 leading-relaxed mb-3">Jangan ragu hubungi admin kami! Kami siap membantu kamu memilih produk yang paling sesuai.</p>
+                <a href="https://wa.me/6287777747477" target="_blank" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chat Admin Sekarang
+                </a>
             </div>
         </div>
     </div>
@@ -751,6 +907,225 @@
             if(!name || !email) { alert('Harap isi Nama dan Gmail Anda!'); return; }
             const msg = `Halo Admin DAENG PATCH,%0A%0ASaya ingin memesan *PC VERSION (Full Update)*%0A*Nama:* ${name}%0A*Gmail:* ${email}%0A%0ASaya sudah transfer ke SeaBank. Mohon diproses!`;
             window.open(`https://wa.me/6287777747477?text=${msg}`, '_blank');
+        }
+
+        // ============================================================
+        // DATA PREVIEW PRODUK
+        // ============================================================
+        // CARA EDIT:
+        // - "images": isi array URL gambar preview (bisa 1-6 gambar)
+        // - "youtube": isi Video ID YouTube (bagian setelah ?v= di URL)
+        //   Contoh: URL "https://youtube.com/watch?v=dQw4w9WgXcQ" → ID = "dQw4w9WgXcQ"
+        // - Kosongkan array [] jika belum punya, item placeholder akan muncul otomatis
+        // ============================================================
+        const productPreviews = {
+            'naruto': {
+                title: 'Naruto x Boruto Storm Connections',
+                badge: 'PS4 HEN MOD',
+                price: 'Rp 50.000',
+                orderKey: 'Naruto Boruto Connections Mod Indo',
+                orderType: 'wa', // 'wa' atau 'shopee'
+                images: [
+                    // Contoh: 'https://i.ibb.co/xxxx/gambar.jpg'
+                    // Ganti dengan link screenshot mod-mu
+                ],
+                youtube: '' // Contoh: 'dQw4w9WgXcQ'
+            },
+            'gta5': {
+                title: 'GTA 5 Mod Indonesia Bundle',
+                badge: 'PS4 HEN MOD',
+                price: 'Rp 150.000',
+                orderKey: 'GTA 5 Mod Indo + Mod Menu',
+                orderType: 'wa',
+                images: [
+                    'https://i.ibb.co.com/7xcPRdFG/Screenshot-668.png',
+                    'https://i.ibb.co.com/gLJHGjKt/Screenshot-669.png',
+                    'https://i.ibb.co.com/HDbyX28v/Screenshot-670.png',
+                    'https://i.ibb.co.com/BVT2W5Q2/Screenshot-671.png',
+                    'https://i.ibb.co.com/w5bZtwg/Screenshot-672.png',
+                    'https://i.ibb.co.com/v46XH3Gq/Screenshot-673.png',
+                    'https://i.ibb.co.com/fYgyW8zX/Screenshot-674.png',
+                    'https://i.ibb.co.com/2YpSgtgD/Screenshot-675.png',
+                    'https://i.ibb.co.com/KxQt17NK/Screenshot-676.png',
+                    'https://i.ibb.co.com/WvjfQmP3/Screenshot-677.png',
+                    'https://i.ibb.co.com/7tGsfy2R/Screenshot-678.png',
+                    'https://i.ibb.co.com/3mXp5L7K/Screenshot-679.png',
+                    'https://i.ibb.co.com/gKkyxWT/Screenshot-680.png',
+                    'https://i.ibb.co.com/60DzrJPt/Screenshot-681.png',
+                    'https://i.ibb.co.com/qMw2Kh82/Screenshot-682.png',
+                    'https://i.ibb.co.com/WpWYxScp/Screenshot-683.png',
+                    'https://i.ibb.co.com/Q7NWfHRp/Screenshot-684.png',
+                    'https://i.ibb.co.com/MD6wYs3h/Screenshot-685.png',	
+                    'https://i.ibb.co.com/yFcp8Z6R/Screenshot-686.png',
+                    'https://i.ibb.co.com/wZbhDWY7/Screenshot-687.png',
+                    'https://i.ibb.co.com/DfBVKMSj/Screenshot-688.png',
+                    'https://i.ibb.co.com/Hf5xCFy6/Screenshot-689.png',
+                    'https://i.ibb.co.com/svnqTWzQ/Screenshot-690.png',
+                    'https://i.ibb.co.com/BHDzJZrZ/Screenshot-691.png',
+                    'https://i.ibb.co.com/d0dPjS8r/Screenshot-692.png',
+                    'https://i.ibb.co.com/zhRs8Nrc/Screenshot-693.png',
+                    'https://i.ibb.co.com/WNNgs9Z2/Screenshot-694.png',
+                    'https://i.ibb.co.com/d09jTS5s/Screenshot-695.png',
+                    'https://i.ibb.co.com/WNphTKgm/Screenshot-696.png',
+                    'https://i.ibb.co.com/LdYgHPPg/Screenshot-697.png',					
+                    'https://i.ibb.co.com/VWqNtSQT/Screenshot-698.png',
+                ],
+                youtube: ''
+            },
+            'pes2018': {
+                title: 'PES 2018 Season 2026',
+                badge: 'PS4 HEN LATEST UPDATE',
+                price: 'Rp 150.000',
+                orderKey: 'PES 2018 Season 2026',
+                orderType: 'wa',
+                images: [],
+                youtube: ''
+            },
+            'pes2026pc': {
+                title: 'PES 2026 PC Version',
+                badge: 'FLAGSHIP PC MOD',
+                price: 'Rp 200.000',
+                orderKey: null,
+                orderType: 'modal',
+                images: [
+                    'https://iili.io/qNcUbIa.jpg',
+                    'https://i.ibb.co.com/3mpBSw69/FB-IMG-1773968089789.jpg',
+                    'https://i.ibb.co.com/84RX40YW/Screenshot-2026-03-20-08-50-23-798-com-ss-android-ugc-trill-edit.jpg',
+                    'https://i.ibb.co.com/1GxB5SQB/Screenshot-2026-03-20-08-55-30-358-com-facebook-katana-edit.jpg',
+                ],
+                youtube: '' // Isi Video ID YouTube jika ada
+            },
+            'pes2026ps4': {
+                title: 'PES 2026 PS4 HEN',
+                badge: 'PS4 HEN PACKAGE',
+                price: 'Rp 350.000',
+                orderKey: null,
+                orderType: 'shopee',
+                shopeeLink: 'https://s.shopee.co.id/5Anse4ofFA',
+                images: [
+                    'https://i.ibb.co.com/zVphKVwK/FB-IMG-1773968252726.jpg',
+                    'https://i.ibb.co.com/dwQqcJ6w/FB-IMG-1773968282239.jpg',
+                    'https://i.ibb.co.com/VWGtQy51/FB-IMG-1773968084605.jpg',
+                ],
+                youtube: ''
+            }
+        };
+
+        let currentPreviewProduct = null;
+
+        function openPreview(productKey) {
+            const data = productPreviews[productKey];
+            if (!data) return;
+            currentPreviewProduct = productKey;
+
+            document.getElementById('preview-title').textContent = data.title;
+            document.getElementById('preview-badge').textContent = data.badge;
+            document.getElementById('preview-price').textContent = data.price;
+
+            // Setup order button
+            const orderBtn = document.getElementById('preview-order-btn');
+            if (data.orderType === 'modal') {
+                orderBtn.textContent = 'ORDER SEKARANG';
+                orderBtn.onclick = () => { closePreview(); openModal(); };
+            } else if (data.orderType === 'shopee') {
+                orderBtn.textContent = 'VIA SHOPEE';
+                orderBtn.onclick = () => window.open(data.shopeeLink, '_blank');
+            } else {
+                orderBtn.textContent = 'ORDER NOW';
+                orderBtn.onclick = () => orderWA(data.orderKey);
+            }
+            // Re-append icon
+            orderBtn.innerHTML = orderBtn.textContent + ' <i data-lucide="shopping-bag" style="width:16px;height:16px;display:inline-block;vertical-align:middle;margin-left:6px;"></i>';
+
+            // Build thumbnails
+            const thumbGrid = document.getElementById('preview-thumb-grid');
+            thumbGrid.innerHTML = '';
+
+            const allMedia = [];
+            if (data.youtube) allMedia.push({ type: 'youtube', id: data.youtube });
+            data.images.forEach(url => allMedia.push({ type: 'image', url }));
+
+            if (allMedia.length === 0) {
+                // Show placeholder
+                showPreviewPlaceholder();
+                thumbGrid.style.display = 'none';
+            } else {
+                thumbGrid.style.display = 'grid';
+                allMedia.forEach((item, idx) => {
+                    const thumb = document.createElement('div');
+                    thumb.style.cssText = 'aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;background:#020617;';
+                    thumb.dataset.idx = idx;
+
+                    if (item.type === 'youtube') {
+                        const thumbImg = document.createElement('img');
+                        thumbImg.src = `https://img.youtube.com/vi/${item.id}/mqdefault.jpg`;
+                        thumbImg.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+                        // Play icon overlay
+                        const overlay = document.createElement('div');
+                        overlay.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);';
+                        overlay.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+                        thumb.style.position = 'relative';
+                        thumb.appendChild(thumbImg);
+                        thumb.appendChild(overlay);
+                    } else {
+                        const img = document.createElement('img');
+                        img.src = item.url;
+                        img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+                        thumb.appendChild(img);
+                    }
+
+                    thumb.onclick = () => selectPreviewMedia(allMedia, idx, thumb);
+                    thumbGrid.appendChild(thumb);
+                });
+                // Show first item
+                selectPreviewMedia(allMedia, 0, thumbGrid.children[0]);
+            }
+
+            document.getElementById('preview-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function selectPreviewMedia(allMedia, idx, thumbEl) {
+            const item = allMedia[idx];
+            const mainImg = document.getElementById('preview-main-img');
+            const mainImgWrap = document.getElementById('preview-main-img-wrap');
+            const mainVideo = document.getElementById('preview-main-video');
+            const mainVideoWrap = document.getElementById('preview-main-video-wrap');
+            const placeholder = document.getElementById('preview-placeholder');
+
+            placeholder.style.display = 'none';
+
+            if (item.type === 'youtube') {
+                mainImgWrap.style.display = 'none';
+                mainVideoWrap.style.display = 'block';
+                mainVideo.src = `https://www.youtube.com/embed/${item.id}?autoplay=1&rel=0`;
+            } else {
+                mainVideoWrap.style.display = 'none';
+                mainImgWrap.style.display = 'block';
+                mainImg.src = item.url;
+                mainImg.style.display = 'block';
+                // Stop any video
+                mainVideo.src = '';
+            }
+
+            // Update active thumbnail
+            const thumbGrid = document.getElementById('preview-thumb-grid');
+            Array.from(thumbGrid.children).forEach(t => t.style.borderColor = 'transparent');
+            if (thumbEl) thumbEl.style.borderColor = '#ef4444';
+        }
+
+        function showPreviewPlaceholder() {
+            document.getElementById('preview-main-img-wrap').style.display = 'none';
+            document.getElementById('preview-main-video-wrap').style.display = 'none';
+            document.getElementById('preview-placeholder').style.display = 'flex';
+        }
+
+        function closePreview() {
+            document.getElementById('preview-modal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+            // Stop video
+            document.getElementById('preview-main-video').src = '';
         }
     </script>
 </body>
