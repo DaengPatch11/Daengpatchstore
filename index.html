@@ -1,1132 +1,970 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAENG PATCH - DAENG PATCH STORE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .selection-red::selection { background: rgba(239, 68, 68, 0.3); }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border-1px solid rgba(255, 255, 255, 0.1); }
-        
-        .feature-item { 
-            @apply flex items-start gap-3 p-4 rounded-2xl bg-slate-900/30 border border-slate-800/50 hover:border-red-600/30 transition-all duration-300;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAENG PATCH STORE - PES 2026, eFootball 2027 & Mod PS4 HEN</title>
+<meta name="description" content="DAENG PATCH STORE: patch PES 2026 (PC & PS4 HEN) Winter Season 26/27, eFootball 2027 untuk PS4 HEN & PS5 HEN, dan mod PS4 HEN buatan modder Indonesia.">
+<meta name="theme-color" content="#05070f">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700;800&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+*{box-sizing:border-box}
+:root{--latar:#05070f;--gelap:#071025;--aksen:#5b95ff;--aksen2:#2fd9f4;--teks:#f3f6fc;--redup:#98a4c2;--kuning:#ffc24b;--hijau:#3ddc97;--merah:#ff6b6b;--jingga:#ff9a3d;--garis:rgba(255,255,255,.09);--kaca:rgba(7,16,37,.66);--judul:'Barlow Semi Condensed','Barlow',system-ui,sans-serif;--grad:linear-gradient(90deg,var(--aksen),var(--aksen2))}
+html{scroll-behavior:smooth;scroll-padding-top:84px;background:var(--latar)}
+body{margin:0;color:var(--teks);font:16px/1.6 'Barlow',system-ui,'Segoe UI',Roboto,sans-serif;background:var(--latar);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+::selection{background:rgba(47,217,244,.3)}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--latar)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--aksen),var(--aksen2));border-radius:10px;border:2px solid var(--latar)}
+.ik{width:1.15em;height:1.15em;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em}
+.ik.isi{fill:currentColor;stroke:none}
+.wadah{max-width:1180px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--aksen2);outline-offset:3px}
 
-        .team-badge {
-            @apply p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-[10px] font-bold uppercase text-slate-400 text-center hover:border-red-600/50 hover:text-white transition-all cursor-default;
-        }
+/* ---------- latar: simbol tombol stik melayang (sama dengan web akses & DAENG Manager) ---------- */
+.latar{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(1100px 680px at 8% -12%,rgba(43,99,240,.30),transparent 62%),radial-gradient(900px 620px at 100% 108%,rgba(47,217,244,.13),transparent 60%)}
+.latar i{position:absolute;bottom:-140px;width:var(--s);height:var(--s);animation:naik var(--d) linear var(--t) infinite;will-change:transform}
+.latar svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.latar .l1{opacity:.2;filter:blur(1px)}.latar .l1 svg{stroke-width:6}
+.latar .l2{opacity:.3;filter:drop-shadow(0 0 4px currentColor)}.latar .l2 svg{stroke-width:5}
+.latar .l3{opacity:.4;filter:drop-shadow(0 0 7px currentColor)}.latar .l3 svg{stroke-width:4.4}
+@keyframes naik{from{transform:translateY(0) rotate(0)}to{transform:translateY(calc(-100vh - 300px)) rotate(var(--r))}}
+.nav,main,footer{position:relative;z-index:1}
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #ef4444; border-radius: 10px; }
+/* ---------- navigasi ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
+.nav.gulir{background:rgba(5,7,15,.72);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-color:var(--garis);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.nav-in{height:76px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.logo{width:44px;height:44px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 0 26px rgba(47,217,244,.35),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .4s}
+.brand:hover .logo{transform:rotate(-12deg) scale(1.06)}
+.logo svg{width:29px;height:29px}
+.brand b{display:block;font:700 21px/1.05 var(--judul);letter-spacing:.06em}
+.brand small{display:block;font:600 11px/1.4 var(--judul);color:var(--aksen);letter-spacing:.42em}
+.menu{display:flex;align-items:center;gap:4px}
+.menu a{position:relative;padding:8px 13px;font:600 15px var(--judul);letter-spacing:.08em;text-transform:uppercase;color:var(--redup);border-radius:999px;transition:color .2s,background .2s}
+.menu a:hover{color:var(--teks);background:rgba(255,255,255,.05)}
+.menu a.aktif{color:var(--teks)}
+.menu a.aktif::after{content:'';position:absolute;left:14px;right:14px;bottom:2px;height:2px;border-radius:2px;background:var(--grad);box-shadow:0 0 10px var(--aksen2)}
+.burger{display:none;background:rgba(255,255,255,.06);border:1px solid var(--garis);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer}
+.burger .ik{width:22px;height:22px}
 
-        .modal-scroll::-webkit-scrollbar { width: 4px; }
-        .modal-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+/* ---------- tombol ---------- */
+.btn,.btn2,.btn-wa{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;font:700 17px var(--judul);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .2s,box-shadow .2s,filter .2s,background .2s,border-color .2s}
+.btn{background:var(--grad);color:var(--gelap);border:0;padding:15px 30px;box-shadow:0 10px 30px rgba(47,217,244,.28)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 14px 38px rgba(47,217,244,.42)}
+.btn::after,.btn-wa::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:kilau 4.5s ease-in-out infinite}
+@keyframes kilau{0%,60%{left:-60%}100%{left:130%}}
+.btn2{background:rgba(255,255,255,.06);color:var(--teks);border:1px solid rgba(255,255,255,.18);padding:14px 28px}
+.btn2:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.34);transform:translateY(-2px)}
+.btn-wa{background:linear-gradient(90deg,var(--hijau),#8ff0c4);color:#052e22;border:0;padding:15px 28px;box-shadow:0 10px 30px rgba(61,220,151,.25)}
+.btn-wa:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-kecil{padding:10px 18px;font-size:15px}
+.penuh{width:100%}
+.btn-preview{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;border-radius:999px;font:700 14px var(--judul);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border:1px solid rgba(91,149,255,.35);color:#9cc0ff;background:rgba(91,149,255,.08);transition:background .2s,border-color .2s}
+.btn-preview:hover{background:rgba(91,149,255,.16);border-color:rgba(91,149,255,.6)}
 
-        /* FAQ Transition */
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 200px; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
+/* ---------- muncul saat digulir ---------- */
+.js .muncul{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--u,0) * 70ms)}
+.js .muncul.tampil{opacity:1;transform:none}
 
-        /* Gallery Image Hover */
-        .gallery-img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .gallery-item:hover .gallery-img { transform: scale(1.1); }
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 70px;text-align:center;position:relative}
+.hero .wadah{position:relative}
+.cincin{position:absolute;left:50%;top:30%;width:min(560px,88vw);opacity:.75;aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;z-index:-1}
+.cincin::before,.cincin::after{content:'';position:absolute;inset:0;border-radius:50%;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px))}
+.cincin::before{background:conic-gradient(from 0deg,transparent 0 55%,rgba(91,149,255,.0) 55%,rgba(91,149,255,.9) 80%,rgba(47,217,244,1) 82%,transparent 82%);animation:putar 7s linear infinite;filter:drop-shadow(0 0 8px var(--aksen2))}
+.cincin::after{inset:9%;background:conic-gradient(from 180deg,transparent 0 70%,rgba(47,217,244,.6) 92%,transparent 92%);animation:putar 11s linear infinite reverse;opacity:.6}
+.cincin i{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle,rgba(43,99,240,.22),transparent 65%);animation:denyut 4s ease-in-out infinite}
+@keyframes putar{to{transform:rotate(360deg)}}
+@keyframes denyut{50%{transform:scale(1.12);opacity:.6}}
+.lencana-hero{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border-radius:999px;background:rgba(91,149,255,.12);border:1px solid rgba(91,149,255,.35);font:700 13px var(--judul);letter-spacing:.24em;text-transform:uppercase;color:#cfe0ff;box-shadow:0 0 30px rgba(91,149,255,.18)}
+.titik{width:8px;height:8px;border-radius:50%;background:var(--aksen2);box-shadow:0 0 0 0 rgba(47,217,244,.7);animation:titik 1.8s infinite}
+@keyframes titik{70%{box-shadow:0 0 0 10px rgba(47,217,244,0)}100%{box-shadow:0 0 0 0 rgba(47,217,244,0)}}
+.hero h1{margin:26px 0 0;font:800 clamp(56px,11vw,132px)/.9 var(--judul);letter-spacing:.01em;text-transform:uppercase}
+.hero h1 span{display:block}
+.hero h1 .h1-b{background:linear-gradient(90deg,var(--aksen),var(--aksen2),#bff6ff,var(--aksen2),var(--aksen));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:alir 5s linear infinite;filter:drop-shadow(0 0 24px rgba(47,217,244,.35))}
+@keyframes alir{to{background-position:-250% 0}}
+.hero-p{max-width:620px;margin:22px auto 0;color:var(--redup);font-size:19px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+.hero-angka{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:52px auto 0}
+.hero-angka div{background:var(--kaca);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--garis);border-radius:20px;padding:16px 10px}
+.hero-angka b{display:block;font:800 40px/1 var(--judul);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-angka span{display:block;margin-top:6px;font:600 12px var(--judul);letter-spacing:.2em;text-transform:uppercase;color:var(--redup)}
+.gulir-turun{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);color:var(--redup);animation:ayun 2s ease-in-out infinite}
+@keyframes ayun{50%{transform:translate(-50%,8px)}}
 
-        /* Product Preview Modal */
-        .preview-modal { display: none; position: fixed; inset: 0; z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
-        .preview-modal.open { display: flex; }
-        .preview-modal-inner { background: #0f172a; border: 1px solid #1e293b; border-radius: 2rem; width: 100%; max-width: 680px; max-height: 90vh; overflow-y: auto; padding: 2rem; position: relative; z-index: 10; }
-        .preview-modal-inner::-webkit-scrollbar { width: 4px; }
-        .preview-modal-inner::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-        .preview-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); }
+/* ---------- bagian ---------- */
+.bagian{padding:90px 0}
+.kepala-bagian{text-align:center;margin-bottom:46px}
+.atas{display:block;font:600 13px var(--judul);color:var(--aksen);letter-spacing:.32em;text-transform:uppercase}
+.kepala-bagian h2{margin:8px 0 0;font:800 clamp(36px,5vw,52px)/1.05 var(--judul);text-transform:uppercase;letter-spacing:.01em}
+.kepala-bagian p{margin:12px auto 0;max-width:640px;color:var(--redup);font-size:17px}
+.garis-bawah{width:84px;height:3px;margin:18px auto 0;border-radius:3px;background:var(--grad);box-shadow:0 0 14px var(--aksen2)}
+.kaca{background:var(--kaca);-webkit-backdrop-filter:blur(16px) saturate(130%);backdrop-filter:blur(16px) saturate(130%);border:1px solid var(--garis);border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04)}
 
-        /* Product Preview Thumbnails */
-        .preview-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 1rem; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
-        .preview-thumb:hover, .preview-thumb.active { border-color: #ef4444; }
-        .preview-thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+/* galeri */
+.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.galeri figure{margin:0;position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid var(--garis);background:linear-gradient(110deg,#0d1528 30%,#16213b 50%,#0d1528 70%);background-size:200% 100%;animation:memuat 1.6s linear infinite;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.galeri figure.siap{animation:none;background:#0d1528}
+@keyframes memuat{to{background-position:-200% 0}}
+.galeri img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.galeri figure.siap img{opacity:1}
+.galeri figure:hover img{transform:scale(1.08)}
+.galeri figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;background:linear-gradient(transparent,rgba(5,7,15,.92));font:700 14px var(--judul);letter-spacing:.14em;text-transform:uppercase;transform:translateY(100%);transition:transform .35s}
+.galeri figure:hover figcaption,.galeri figure:focus-within figcaption{transform:none}
+.galeri figure::after{content:'';position:absolute;inset:0;border-radius:inherit;border:1px solid transparent;transition:border-color .3s,box-shadow .3s;pointer-events:none}
+.galeri figure:hover::after{border-color:rgba(47,217,244,.6);box-shadow:inset 0 0 30px rgba(47,217,244,.15)}
 
-        /* Main preview area */
-        .preview-main { width: 100%; aspect-ratio: 16/9; border-radius: 1rem; overflow: hidden; background: #020617; position: relative; }
-        .preview-main img { width: 100%; height: 100%; object-fit: cover; }
-        .preview-main iframe { width: 100%; height: 100%; border: none; }
-        .preview-media-type-badge { position: absolute; top: 8px; left: 8px; background: rgba(239,68,68,0.9); color: white; font-size: 9px; font-weight: 900; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; }
+/* fitur */
+.fitur{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fitur-item{position:relative;display:flex;align-items:center;gap:14px;padding:18px 20px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.fitur-item:hover{transform:translateY(-4px);border-color:rgba(91,149,255,.45);box-shadow:0 18px 40px rgba(0,0,0,.4),0 0 24px rgba(91,149,255,.15)}
+.fitur-ik{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(91,149,255,.14);color:var(--aksen);flex:0 0 auto;transition:transform .35s}
+.fitur-item:hover .fitur-ik{transform:rotate(-8deg) scale(1.08)}
+.fitur-ik .ik{width:22px;height:22px}
+.fitur-item h3{margin:0;font:700 18px/1.2 var(--judul);letter-spacing:.04em;text-transform:uppercase}
+.fitur-item.hot .fitur-ik{background:rgba(61,220,151,.14);color:var(--hijau)}
+.fitur-item.biru .fitur-ik{background:rgba(47,217,244,.14);color:var(--aksen2)}
+.tag{position:absolute;top:-10px;right:14px;padding:3px 11px;border-radius:999px;font:700 11px var(--judul);letter-spacing:.14em;text-transform:uppercase;color:var(--gelap);background:var(--grad);box-shadow:0 0 16px rgba(47,217,244,.4)}
+.tag.hijau{background:linear-gradient(90deg,var(--hijau),#8ff0c4);box-shadow:0 0 16px rgba(61,220,151,.4)}
 
-        /* Product card preview button */
-        .btn-preview { display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%; padding: 12px; border-radius: 1rem; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; margin-bottom: 12px; border: 1.5px solid rgba(239,68,68,0.3); color: #ef4444; background: rgba(239,68,68,0.07); transition: all 0.2s; }
-        .btn-preview:hover { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.6); }
-        
-        /* Skeleton Loading Effect */
-        .loading-skeleton {
-            background: linear-gradient(90deg, #0f172a 25%, #1e293b 50%, #0f172a 75%);
-            background-size: 200% 100%;
-            animation: skeleton-loading 1.5s infinite;
-        }
-        @keyframes skeleton-loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-    </style>
+/* tim */
+.tim-kepala{display:flex;align-items:center;gap:16px;margin:0 0 20px}
+.tim-kepala::before{content:'';width:5px;height:46px;border-radius:5px;background:var(--grad);box-shadow:0 0 12px var(--aksen2)}
+.tim-kepala.abu::before{background:linear-gradient(var(--redup),#5d6886);box-shadow:none}
+.tim-kepala h3{margin:0;font:800 32px/1 var(--judul);text-transform:uppercase}
+.tim-kepala p{margin:4px 0 0;font:600 13px var(--judul);letter-spacing:.2em;text-transform:uppercase;color:var(--redup)}
+.tim-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:56px}
+.tim-chip{padding:12px 10px;border-radius:14px;text-align:center;font:600 14px var(--judul);letter-spacing:.06em;text-transform:uppercase;color:#c7d2e6;background:rgba(255,255,255,.035);border:1px solid var(--garis);transition:transform .2s,border-color .2s,color .2s,background .2s}
+.tim-chip:hover{transform:translateY(-3px);color:#fff;border-color:rgba(47,217,244,.5);background:rgba(47,217,244,.08)}
+.tim-chip.sorot{color:#fff;border-color:rgba(91,149,255,.55);background:rgba(91,149,255,.12)}
+.tim-chip.negara{color:#ffe2a8;border-color:rgba(255,194,75,.3);background:rgba(255,194,75,.06)}
+.dua-kolom{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{padding:26px}
+.panel h4{margin:0 0 16px;font:600 13px var(--judul);letter-spacing:.28em;text-transform:uppercase;color:var(--aksen)}
+.panel h4.kuning{color:var(--kuning)}
+.pil-baris{display:flex;flex-wrap:wrap;gap:8px}
+.pil{padding:6px 14px;border-radius:999px;font:600 14px var(--judul);letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.06);border:1px solid var(--garis)}
+.pil.hijau{color:var(--hijau);border-color:rgba(61,220,151,.35)}.pil.kuning{color:var(--kuning);border-color:rgba(255,194,75,.35)}
+.stadion{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--garis);font:700 16px var(--judul);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;color:#fff}
+.stadion .ik{color:var(--kuning)}
+
+/* kartu produk */
+.produk-grid{display:grid;gap:26px;align-items:stretch}
+.produk-grid.dua{grid-template-columns:repeat(2,1fr);max-width:980px;margin:0 auto}
+.produk-grid.tiga{grid-template-columns:repeat(3,1fr)}
+.produk-grid.satu{grid-template-columns:minmax(0,540px);justify-content:center}
+@property --sudut{syntax:'<angle>';inherits:false;initial-value:0deg}
+.produk{position:relative;display:flex;flex-direction:column;padding:34px 28px 28px;border-radius:30px;background:var(--kaca);-webkit-backdrop-filter:blur(16px) saturate(130%);backdrop-filter:blur(16px) saturate(130%);border:1px solid var(--garis);box-shadow:0 24px 60px rgba(0,0,0,.4);transition:transform .3s,box-shadow .3s,border-color .3s}
+.produk:hover{transform:translateY(-8px);border-color:rgba(91,149,255,.4);box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 40px rgba(91,149,255,.14)}
+.produk.unggulan{border:2px solid transparent;background:linear-gradient(rgba(9,18,40,.88),rgba(9,18,40,.88)) padding-box,conic-gradient(from var(--sudut),var(--aksen),var(--aksen2),rgba(91,149,255,.15),var(--aksen2),var(--aksen)) border-box;animation:sudut 6s linear infinite}
+@keyframes sudut{to{--sudut:360deg}}
+.pita{position:absolute;top:-14px;right:26px;padding:5px 16px;border-radius:999px;font:700 13px var(--judul);letter-spacing:.18em;text-transform:uppercase;color:var(--gelap);background:var(--grad);box-shadow:0 0 20px rgba(47,217,244,.45)}
+.pita.hijau{background:linear-gradient(90deg,var(--hijau),#8ff0c4);box-shadow:0 0 20px rgba(61,220,151,.4)}
+.pita.jingga{background:linear-gradient(90deg,var(--jingga),var(--kuning));box-shadow:0 0 20px rgba(255,154,61,.4)}
+.produk-ik{width:64px;height:64px;margin:0 auto 16px;border-radius:20px;display:flex;align-items:center;justify-content:center;background:rgba(91,149,255,.14);color:var(--aksen);box-shadow:inset 0 0 0 1px rgba(91,149,255,.3);animation:apung 4s ease-in-out infinite}
+.produk-ik .ik{width:30px;height:30px}
+.produk-ik.hijau{background:rgba(61,220,151,.12);color:var(--hijau);box-shadow:inset 0 0 0 1px rgba(61,220,151,.3)}
+.produk-ik.jingga{background:rgba(255,154,61,.12);color:var(--jingga);box-shadow:inset 0 0 0 1px rgba(255,154,61,.3)}
+@keyframes apung{50%{transform:translateY(-6px)}}
+.produk h3{margin:0;text-align:center;font:800 30px/1.05 var(--judul);text-transform:uppercase}
+.produk-sub{margin:8px 0 0;text-align:center;font:600 13px var(--judul);letter-spacing:.22em;text-transform:uppercase;color:var(--aksen2)}
+.desk{flex:1;margin:22px 0;padding:18px;border-radius:20px;background:rgba(5,7,15,.55);border:1px solid var(--garis);font-size:15px;color:#c3cce0}
+.desk .atas{margin-bottom:8px;font-size:12px}
+.desk p{margin:0 0 10px}
+.chip-baris{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{padding:4px 10px;border-radius:999px;font:600 13px var(--judul);letter-spacing:.04em;background:rgba(255,255,255,.06);color:#c7d2e6}
+.paket{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;margin-top:8px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--garis)}
+.paket b{font:700 17px var(--judul);letter-spacing:.02em;color:#fff}
+.paket small{display:block;font-size:13px;color:var(--redup)}
+.paket strong{font:800 20px var(--judul);white-space:nowrap;color:var(--aksen2)}
+.btn-ketentuan{margin-top:12px;width:100%;padding:10px;border-radius:999px;cursor:pointer;border:1px solid rgba(61,220,151,.4);background:rgba(61,220,151,.08);color:var(--hijau);font:700 14px var(--judul);letter-spacing:.14em;text-transform:uppercase;transition:background .2s}
+.btn-ketentuan:hover{background:rgba(61,220,151,.16)}
+.harga{text-align:center;margin-bottom:20px}
+.harga b{display:block;font:800 52px/1 var(--judul);white-space:nowrap;background:linear-gradient(90deg,#fff,#cfe9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.harga span{display:block;margin-top:10px;font:600 13px var(--judul);letter-spacing:.16em;text-transform:uppercase;color:var(--redup)}
+.produk .btn-preview{margin-bottom:12px}
+.btn-garis{margin-top:12px;width:100%;padding:12px 16px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--teks);font:700 14px var(--judul);letter-spacing:.06em;text-transform:uppercase;transition:background .2s,border-color .2s}
+.btn-garis:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+.platform{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.platform span{padding:6px 14px;border-radius:12px;font:800 15px var(--judul);letter-spacing:.12em;background:rgba(255,255,255,.06);border:1px solid var(--garis)}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{border-radius:20px;overflow:hidden;transition:border-color .25s}
+.faq-item.buka{border-color:rgba(91,149,255,.45)}
+.faq-tanya{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:0;cursor:pointer;text-align:left;font:700 19px var(--judul);letter-spacing:.03em}
+.faq-tanya .ik{transition:transform .3s;color:var(--aksen)}
+.faq-item.buka .faq-tanya .ik{transform:rotate(180deg)}
+.faq-jawab{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.faq-item.buka .faq-jawab{grid-template-rows:1fr}
+.faq-jawab>div{overflow:hidden}
+.faq-jawab p{margin:0;padding:0 24px 22px;color:#c3cce0}
+
+/* ajakan */
+.ajakan{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:34px 38px;border-radius:30px;background:linear-gradient(120deg,rgba(43,99,240,.28),rgba(47,217,244,.12)),var(--kaca);border:1px solid rgba(91,149,255,.35)}
+.ajakan h3{margin:0;font:800 34px/1.1 var(--judul);text-transform:uppercase}
+.ajakan p{margin:6px 0 0;color:#c3cce0}
+
+/* footer */
+footer{padding:50px 0 40px;border-top:1px solid var(--garis);background:rgba(5,7,15,.6);text-align:center}
+.sosmed{display:flex;justify-content:center;gap:14px;margin:22px 0}
+.sosmed a{width:48px;height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:1px solid var(--garis);color:var(--redup);transition:transform .2s,color .2s,border-color .2s,background .2s}
+.sosmed a:hover{transform:translateY(-3px);color:#fff;border-color:rgba(47,217,244,.5);background:rgba(47,217,244,.1)}
+.sosmed .ik{width:22px;height:22px}
+.hak{font:600 13px var(--judul);letter-spacing:.32em;text-transform:uppercase;color:#5d6886}
+footer .brand{justify-content:center;margin:0}
+
+/* tombol WA melayang */
+.wa-apung{position:fixed;right:24px;bottom:24px;z-index:60;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--hijau),#1fb57a);color:#fff;box-shadow:0 12px 30px rgba(61,220,151,.4);transition:transform .2s}
+.wa-apung:hover{transform:scale(1.08)}
+.wa-apung .ik{width:30px;height:30px}
+.wa-apung::before{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid var(--hijau);animation:gelombang 2.2s ease-out infinite}
+@keyframes gelombang{to{transform:scale(1.7);opacity:0}}
+.wa-apung span{position:absolute;right:76px;white-space:nowrap;padding:8px 14px;border-radius:12px;background:rgba(7,16,37,.9);border:1px solid var(--garis);font:700 14px var(--judul);letter-spacing:.12em;text-transform:uppercase;opacity:0;transform:translateX(8px);transition:opacity .2s,transform .2s;pointer-events:none}
+.wa-apung:hover span{opacity:1;transform:none}
+
+/* jendela (modal) */
+.modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+.modal.buka{visibility:visible;opacity:1}
+.modal-latar{position:absolute;inset:0;background:rgba(2,4,10,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.modal-isi{position:relative;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;padding:28px;border-radius:28px;background:rgba(9,18,40,.96);border:1px solid rgba(91,149,255,.3);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(91,149,255,.12);transform:translateY(20px) scale(.97);transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.modal.buka .modal-isi{transform:none}
+.modal-isi::-webkit-scrollbar{width:6px}
+.modal-kepala{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.modal-kepala h3{margin:4px 0 0;font:800 26px/1.1 var(--judul);text-transform:uppercase}
+.tutup{flex:0 0 auto;width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:rgba(255,255,255,.06);border:1px solid var(--garis);transition:background .2s,transform .2s}
+.tutup:hover{background:rgba(255,255,255,.12);transform:rotate(90deg)}
+.blok{padding:16px 18px;border-radius:18px;background:rgba(5,7,15,.6);border:1px solid var(--garis);margin-bottom:12px;color:#c3cce0;font-size:15px}
+.blok h4{margin:0 0 6px;font:700 17px var(--judul);letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.blok.merah{border-color:rgba(255,107,107,.35)}
+.blok ul{margin:6px 0 0;padding-left:20px}.blok ul.polos{list-style:none;padding-left:0}
+.blok li{margin:3px 0}
+.blok p{margin:0 0 6px}
+.hrg{color:var(--hijau);font:700 16px var(--judul);letter-spacing:.04em;margin-bottom:6px}
+label.isian-lbl{display:block;margin:14px 0 6px;font:600 12px var(--judul);letter-spacing:.24em;text-transform:uppercase;color:var(--redup)}
+.isian{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(5,7,15,.7);color:var(--teks);font:500 17px 'Barlow',system-ui,sans-serif;transition:border-color .15s,box-shadow .15s}
+.isian:focus{outline:0;border-color:var(--aksen2);box-shadow:0 0 0 3px rgba(47,217,244,.22)}
+.rekening{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0;padding:16px 18px;border-radius:18px;background:rgba(5,7,15,.7);border:1px solid rgba(91,149,255,.3)}
+.rekening b{display:block;font:800 26px var(--judul);letter-spacing:.1em}
+.rekening small{font:600 13px var(--judul);letter-spacing:.18em;text-transform:uppercase;color:var(--redup)}
+.salin-btn{width:46px;height:46px;border-radius:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(91,149,255,.14);border:1px solid rgba(91,149,255,.35);color:var(--aksen)}
+.pratinjau-utama{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#020617;border:1px solid var(--garis)}
+.pratinjau-utama img,.pratinjau-utama iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.pratinjau-thumb{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:10px;max-height:220px;overflow-y:auto}
+.pratinjau-thumb button{padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;aspect-ratio:16/9;cursor:pointer;background:#020617;position:relative}
+.pratinjau-thumb button.aktif{border-color:var(--aksen2)}
+.pratinjau-thumb img{width:100%;height:100%;object-fit:cover}
+.pratinjau-kaki{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;padding-top:16px;border-top:1px solid var(--garis)}
+.pratinjau-kaki b{font:800 30px var(--judul)}
+.notif{position:fixed;left:50%;bottom:28px;z-index:300;transform:translate(-50%,20px);opacity:0;padding:12px 22px;border-radius:999px;background:var(--grad);color:var(--gelap);font:700 16px var(--judul);letter-spacing:.06em;transition:opacity .25s,transform .25s;pointer-events:none}
+.notif.tampil{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- layar kecil ---------- */
+@media (max-width:1000px){
+  .menu{position:absolute;top:76px;left:12px;right:12px;flex-direction:column;align-items:stretch;padding:12px;border-radius:22px;background:rgba(7,16,37,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--garis);box-shadow:0 20px 50px rgba(0,0,0,.5);visibility:hidden;opacity:0;transform:translateY(-10px);transition:opacity .25s,transform .25s,visibility .25s}
+  .menu.buka{visibility:visible;opacity:1;transform:none}
+  .menu a{padding:14px 16px;font-size:17px}
+  .menu a.aktif::after{display:none}
+  .menu a.aktif{background:rgba(91,149,255,.12)}
+  .burger{display:flex}
+  .nav{background:rgba(5,7,15,.72);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-color:var(--garis)}
+  .fitur,.produk-grid.tiga{grid-template-columns:repeat(2,1fr)}
+  .tim-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:700px){
+  .wadah{padding:0 16px}
+  .nav-in>.btn{display:none}
+  .hero{padding-top:110px}
+  .hero-p{font-size:17px}
+  .hero-angka{grid-template-columns:repeat(2,1fr)}
+  .bagian{padding:66px 0}
+  .galeri{grid-template-columns:repeat(2,1fr);gap:10px}
+  .galeri figure{border-radius:14px}
+  .galeri figcaption{transform:none;font-size:11px;padding:18px 10px 8px}
+  .fitur,.produk-grid.tiga,.produk-grid.dua,.dua-kolom{grid-template-columns:1fr}
+  .tim-grid{grid-template-columns:repeat(2,1fr)}
+  .produk{padding:30px 20px 22px}
+  .harga b{font-size:44px}
+  .ajakan{padding:26px 22px}
+  .latar .l3{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .latar i{animation:naik var(--d) linear var(--t) infinite!important;animation-play-state:paused!important}
+  .js .muncul{opacity:1;transform:none}
+}
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 selection-red overflow-x-hidden">
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="bt0" viewBox="0 0 100 100"><polygon points="50,15 87,79 13,79"/></symbol><symbol id="bt1" viewBox="0 0 100 100"><rect x="18" y="18" width="64" height="64" rx="5"/></symbol><symbol id="bt2" viewBox="0 0 100 100"><path d="M22 22L78 78M78 22L22 78"/></symbol><symbol id="bt3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="33"/></symbol><symbol id="logo-bola" viewBox="0 0 32 32"><defs><clipPath id="lgk"><circle cx="16" cy="16" r="12.4"/></clipPath></defs><g fill="#071025"><polygon points="16.0,10.8 20.9,14.4 19.1,20.2 12.9,20.2 11.1,14.4"/><g clip-path="url(#lgk)"><polygon points="21.6,8.2 20.0,3.1 24.3,-0.1 28.7,3.1 27.1,8.2"/><polygon points="25.1,19.0 29.5,15.8 33.9,19.0 32.2,24.1 26.8,24.1"/><polygon points="16.0,25.6 20.4,28.8 18.7,33.9 13.3,33.9 11.6,28.8"/><polygon points="6.9,19.0 5.2,24.1 -0.2,24.1 -1.9,19.0 2.5,15.8"/><polygon points="10.4,8.2 4.9,8.2 3.3,3.1 7.7,-0.1 12.0,3.1"/></g></g><path d="M16.0 10.8L16.0 4.4M20.9 14.4L27.0 12.4M19.1 20.2L22.8 25.4M12.9 20.2L9.2 25.4M11.1 14.4L5.0 12.4" fill="none" stroke="#071025" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="16" r="13" fill="none" stroke="#071025" stroke-width="2.4"/></symbol><symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="m9 15 2 2 4-4"/></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol><symbol id="i-door-open" viewBox="0 0 24 24"><path d="M10 21H2"/><path d="M10 3H7a2 2 0 00-2 2v16"/><path d="M14 12h.01"/><path d="M19 21V5a2 2 0 00-1.675-1.974l-6.163-1.013A1 1 0 0010 3v18a1 1 0 001.124.992z"/><path d="M22 21h-3"/></symbol><symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol><symbol id="i-gamepad-2" viewBox="0 0 24 24"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol><symbol id="i-layout-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol><symbol id="i-play-circle" viewBox="0 0 24 24"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"/><circle cx="12" cy="12" r="10"/></symbol><symbol id="i-shirt" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></symbol><symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></symbol><symbol id="i-shopping-cart" viewBox="0 0 24 24"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></symbol><symbol id="i-smile" viewBox="0 0 24 24"><path d="M15 10V9"/><path d="M16.472 15a6 6 0 01-8.943 0"/><path d="M9 10V9"/><circle cx="12" cy="12" r="10"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-swords" viewBox="0 0 24 24"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol><symbol id="i-x-facebook" viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.3h-3.2V8.4c0-.9.3-1.6 1.6-1.6h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.3h2.8V22h3.4z"/></symbol><symbol id="i-x-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.1-3.44-3.37-3.5-5.75-.12-2.13.86-4.23 2.56-5.51 1.12-.88 2.53-1.37 3.95-1.36.1 2.13 0 4.25.01 6.38-1.21-.44-2.85.21-3.2 1.54-.3 1.02.37 2.26 1.36 2.51.81.24 1.8-.18 2.21-.88.25-.48.27-1.03.26-1.57.02-5.48-.01-10.97.02-16.45Z"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></symbol></defs></svg>
+<div class="latar" aria-hidden="true"><i class="l1" style="left:6.6%;--s:33px;--d:56.5s;--t:-2.3s;--r:105deg;color:#2fd9f4"><svg viewBox="0 0 100 100"><use href="#bt2"/></svg></i><i class="l1" style="left:14.4%;--s:36px;--d:63.1s;--t:-31.6s;--r:-164deg;color:#45b7fa"><svg viewBox="0 0 100 100"><use href="#bt3"/></svg></i><i class="l1" style="left:26.6%;--s:32px;--d:60.0s;--t:-23.8s;--r:-108deg;color:#2fd9f4"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l1" style="left:33.1%;--s:36px;--d:70.0s;--t:-67.5s;--r:-244deg;color:#8fe9fb"><svg viewBox="0 0 100 100"><use href="#bt2"/></svg></i><i class="l1" style="left:41.2%;--s:36px;--d:59.9s;--t:-45.1s;--r:-246deg;color:#45b7fa"><svg viewBox="0 0 100 100"><use href="#bt3"/></svg></i><i class="l1" style="left:57.9%;--s:36px;--d:54.1s;--t:-0.1s;--r:-126deg;color:#8fe9fb"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l1" style="left:67.2%;--s:35px;--d:58.7s;--t:-30.8s;--r:204deg;color:#45b7fa"><svg viewBox="0 0 100 100"><use href="#bt2"/></svg></i><i class="l1" style="left:71.8%;--s:31px;--d:64.4s;--t:-47.9s;--r:-186deg;color:#5b95ff"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l1" style="left:84.4%;--s:29px;--d:58.8s;--t:-31.5s;--r:-202deg;color:#8fe9fb"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l1" style="left:93.3%;--s:33px;--d:66.8s;--t:-22.3s;--r:156deg;color:#2fd9f4"><svg viewBox="0 0 100 100"><use href="#bt3"/></svg></i><i class="l2" style="left:8.9%;--s:51px;--d:35.1s;--t:-34.3s;--r:-197deg;color:#45b7fa"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l2" style="left:28.8%;--s:51px;--d:38.0s;--t:-27.3s;--r:-192deg;color:#8fe9fb"><svg viewBox="0 0 100 100"><use href="#bt1"/></svg></i><i class="l2" style="left:38.4%;--s:44px;--d:43.2s;--t:-29.2s;--r:177deg;color:#5b95ff"><svg viewBox="0 0 100 100"><use href="#bt1"/></svg></i><i class="l2" style="left:57.6%;--s:47px;--d:35.1s;--t:-4.7s;--r:220deg;color:#2fd9f4"><svg viewBox="0 0 100 100"><use href="#bt2"/></svg></i><i class="l2" style="left:69.0%;--s:45px;--d:40.0s;--t:-35.1s;--r:115deg;color:#2fd9f4"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l2" style="left:83.7%;--s:45px;--d:35.5s;--t:-1.2s;--r:-126deg;color:#5b95ff"><svg viewBox="0 0 100 100"><use href="#bt1"/></svg></i><i class="l3" style="left:17.3%;--s:72px;--d:31.5s;--t:-14.7s;--r:151deg;color:#2fd9f4"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l3" style="left:42.4%;--s:74px;--d:27.8s;--t:-1.9s;--r:-136deg;color:#8fe9fb"><svg viewBox="0 0 100 100"><use href="#bt0"/></svg></i><i class="l3" style="left:55.5%;--s:74px;--d:25.9s;--t:-7.3s;--r:-197deg;color:#45b7fa"><svg viewBox="0 0 100 100"><use href="#bt3"/></svg></i><i class="l3" style="left:93.2%;--s:82px;--d:27.7s;--t:-4.5s;--r:-169deg;color:#45b7fa"><svg viewBox="0 0 100 100"><use href="#bt1"/></svg></i></div>
+<header class="nav" id="nav">
+    <div class="wadah nav-in">
+        <a class="brand" href="#atas" aria-label="DAENG PATCH STORE, ke atas"><span class="logo" aria-hidden="true"><svg viewBox="0 0 32 32"><use href="#logo-bola"/></svg></span><span><b>DAENG PATCH</b><small>STORE</small></span></a>
+        <nav class="menu" id="menu" aria-label="Menu utama">
+            <a href="#fitur">Fitur</a>
+            <a href="#tim">Tim</a>
+            <a href="#pes2026">PES 2026</a>
+            <a href="#efootball">eFootball 2027</a>
+            <a href="#ps4">Game PS4</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        <a class="btn btn-kecil" href="https://wa.me/6287777747477" target="_blank" rel="noopener"><svg class="ik" aria-hidden="true"><use href="#i-message-circle"/></svg> Hubungi Kami</a>
+        <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu" onclick="toggleMenu()"><svg class="ik" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+</header>
 
-    <!-- Bar Sosial Atas -->
-    <div class="fixed top-0 w-full z-[60] bg-red-600 shadow-lg shadow-red-600/20">
-        <div class="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-[0.2em] hidden sm:block">Kunjungi Media Sosial Kami:</span>
-            <span class="text-[10px] font-black uppercase tracking-[0.2em] sm:hidden">Official Socials:</span>
-            <div class="flex items-center gap-6 sm:gap-10">
-                <a href="https://www.facebook.com/share/1DgPNywNaQ/" target="_blank" class="hover:scale-125 transition-transform flex items-center gap-2">
-                    <i data-lucide="facebook" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-                    <span class="text-[10px] font-black hidden lg:block uppercase">Facebook</span>
-                </a>
-                <a href="https://www.tiktok.com/@daeng_patch?_r=1&_t=ZS-94pTyR3XCdc" target="_blank" class="hover:scale-125 transition-transform flex items-center gap-2">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.1-3.44-3.37-3.5-5.75-.12-2.13.86-4.23 2.56-5.51 1.12-.88 2.53-1.37 3.95-1.36.1 2.13 0 4.25.01 6.38-1.21-.44-2.85.21-3.2 1.54-.3 1.02.37 2.26 1.36 2.51.81.24 1.8-.18 2.21-.88.25-.48.27-1.03.26-1.57.02-5.48-.01-10.97.02-16.45Z"/></svg>
-                    <span class="text-[10px] font-black hidden lg:block uppercase">TikTok</span>
-                </a>
-                <a href="https://wa.me/6287777747477" target="_blank" class="hover:scale-125 transition-transform flex items-center gap-2">
-                    <i data-lucide="message-circle" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-                    <span class="text-[10px] font-black hidden lg:block uppercase">WhatsApp</span>
-                </a>
+<main>
+    <!-- HERO -->
+    <section class="hero" id="atas">
+        <div class="wadah">
+            <div class="cincin" aria-hidden="true"><i></i></div>
+            <span class="lencana-hero muncul"><span class="titik"></span>New update: Winter Season 26/27</span>
+            <h1 class="muncul" style="--u:1"><span>DAENG PATCH</span><span class="h1-b">STORE</span></h1>
+            <p class="hero-p muncul" style="--u:2">Patch PES 2026 untuk PC &amp; PS4 HEN, eFootball 2027 untuk PS4 &amp; PS5 HEN, dan koleksi mod PS4 HEN buatan modder Indonesia.</p>
+            <div class="hero-cta muncul" style="--u:3">
+                <a class="btn" href="#pes2026">Order PES 2026 <svg class="ik" aria-hidden="true"><use href="#i-shopping-cart"/></svg></a>
+                <a class="btn2" href="#efootball">eFootball 2027 <svg class="ik" aria-hidden="true"><use href="#i-gamepad-2"/></svg></a>
+            </div>
+            <div class="hero-angka muncul" style="--u:4">
+                <div><b data-hitung="20">20</b><span>Fantasy Team</span></div>
+                <div><b data-hitung="21">21</b><span>Classic Team</span></div>
+                <div><b data-hitung="6">6</b><span>Liga Tambahan</span></div>
+                <div><b data-hitung="11">11</b><span>Fitur Unggulan</span></div>
+            </div>
+            <a class="gulir-turun" href="#galeri" aria-label="Gulir ke galeri"><svg class="ik" aria-hidden="true"><use href="#i-chevron-down"/></svg></a>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section class="bagian" id="galeri">
+        <div class="wadah">
+            <div class="kepala-bagian muncul"><span class="atas">Galeri</span><h2>Preview Mod</h2><p>Tampilan langsung dari Daeng Patch update 2026.</p><div class="garis-bawah"></div></div>
+            <div class="galeri" data-stagger>
+                <figure class="muncul"><img src="https://iili.io/qNcUbIa.jpg" alt="Screenshot Update #1" loading="eager" decoding="async"><figcaption>Screenshot Update #1</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/3mpBSw69/FB-IMG-1773968089789.jpg" alt="Kits &amp; Jersey Terbaru" loading="eager" decoding="async"><figcaption>Kits &amp; Jersey Terbaru</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/84RX40YW/Screenshot-2026-03-20-08-50-23-798-com-ss-android-ugc-trill-edit.jpg" alt="Detail Stadion BRI Liga 1" loading="eager" decoding="async"><figcaption>Detail Stadion BRI Liga 1</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/1GxB5SQB/Screenshot-2026-03-20-08-55-30-358-com-facebook-katana-edit.jpg" alt="UI &amp; Menu Utama Terbaru" loading="lazy" decoding="async"><figcaption>UI &amp; Menu Utama Terbaru</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/zVphKVwK/FB-IMG-1773968252726.jpg" alt="Line-up Fantasy Team" loading="lazy" decoding="async"><figcaption>Line-up Fantasy Team</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/dwQqcJ6w/FB-IMG-1773968282239.jpg" alt="Master League Real Life Mod" loading="lazy" decoding="async"><figcaption>Master League Real Life Mod</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/VWGtQy51/FB-IMG-1773968084605.jpg" alt="Gameplay Realistis" loading="lazy" decoding="async"><figcaption>Gameplay Realistis</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/VWysknGL/FB-IMG-1773971940428.jpg" alt="Face Model Premium" loading="lazy" decoding="async"><figcaption>Face Model Premium</figcaption></figure>
+                <figure class="muncul"><img src="https://i.ibb.co.com/zWXjDgFy/FB-IMG-1773971932278.jpg" alt="Detail Face Premium" loading="lazy" decoding="async"><figcaption>Detail Face Premium</figcaption></figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- FITUR -->
+    <section class="bagian" id="fitur">
+        <div class="wadah">
+            <div class="kepala-bagian muncul"><span class="atas">PES 2026</span><h2>Daftar Fitur Lengkap</h2><div class="garis-bawah"></div></div>
+            <div class="fitur" data-stagger>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-calendar-check"/></svg></div><h3>Full Transfer Winter 26/27</h3></div>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-smile"/></svg></div><h3>Banyak Face Premium</h3></div>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-languages"/></svg></div><h3>Fitur Bahasa Indonesia</h3></div>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-shirt"/></svg></div><h3>Kits Kualitas Premium</h3></div>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-trophy"/></svg></div><h3>Real Trophy Model</h3></div>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-star"/></svg></div><h3>Fitur Man of the Match</h3></div>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-door-open"/></svg></div><h3>New Prematch Locker Room</h3></div>
+                <div class="fitur-item kaca muncul"><span class="tag">New</span><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-swords"/></svg></div><h3>UEFA Conference League</h3></div>
+                <div class="fitur-item kaca muncul hot"><span class="tag hijau">Hot 🔥</span><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-mic"/></svg></div><h3>Komentator Indo (Demo)</h3></div>
+                <div class="fitur-item kaca muncul"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-map-pin"/></svg></div><h3>Liga 1, 2 &amp; 3 Indonesia</h3></div>
+                <div class="fitur-item kaca muncul biru"><div class="fitur-ik"><svg class="ik" aria-hidden="true"><use href="#i-users"/></svg></div><h3>Full Real Face Liga 1 BRI</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIM -->
+    <section class="bagian" id="tim">
+        <div class="wadah">
+            <div class="kepala-bagian muncul"><span class="atas">Katalog</span><h2>Tim &amp; Liga</h2><div class="garis-bawah"></div></div>
+
+            <div class="tim-kepala muncul"><div><h3>Fantasy Team</h3><p>Total 20 tim universe &amp; karakter spesial</p></div></div>
+            <div class="tim-grid" data-stagger>
+                <div class="tim-chip muncul">All Universe</div>
+                <div class="tim-chip muncul">All Universe 2</div>
+                <div class="tim-chip muncul">Dragonball FC</div>
+                <div class="tim-chip muncul">FIFA Street</div>
+                <div class="tim-chip muncul">Gepeng FC</div>
+                <div class="tim-chip muncul">Indonesia Pride</div>
+                <div class="tim-chip muncul">Jump Force FC</div>
+                <div class="tim-chip muncul">Kuda Pony FC</div>
+                <div class="tim-chip muncul">Loli FC</div>
+                <div class="tim-chip muncul">Main Character FC</div>
+                <div class="tim-chip muncul">Marvel Avenger</div>
+                <div class="tim-chip muncul">Mobile Legend FC</div>
+                <div class="tim-chip muncul">Tawheed FC</div>
+                <div class="tim-chip muncul">Tsubasa FC</div>
+                <div class="tim-chip muncul">Women FC</div>
+                <div class="tim-chip muncul">WWE FC</div>
+                <div class="tim-chip muncul">Raptorstrike FC</div>
+                <div class="tim-chip muncul sorot">Warriors Colosseum</div>
+                <div class="tim-chip muncul sorot">One Piece</div>
+                <div class="tim-chip muncul sorot">Universe 3</div>
+            </div>
+
+            <div class="tim-kepala abu muncul"><div><h3>Classic Team</h3><p>Koleksi legenda dunia &amp; klub bersejarah</p></div></div>
+            <div class="tim-grid" data-stagger>
+                <div class="tim-chip muncul negara">Indonesia Classic AFF 2010</div>
+                <div class="tim-chip muncul negara">Brazil 2006</div>
+                <div class="tim-chip muncul negara">Holland 2010</div>
+                <div class="tim-chip muncul negara">Italy 2006</div>
+                <div class="tim-chip muncul negara">Spain 2010</div>
+                <div class="tim-chip muncul">AC Milan Classic</div>
+                <div class="tim-chip muncul">Arema 2007</div>
+                <div class="tim-chip muncul">Arsenal Classic</div>
+                <div class="tim-chip muncul">AS Roma Classic</div>
+                <div class="tim-chip muncul">ATL Classic</div>
+                <div class="tim-chip muncul">Munchen Classic</div>
+                <div class="tim-chip muncul">Chelsea Classic</div>
+                <div class="tim-chip muncul">Intermilan Classic</div>
+                <div class="tim-chip muncul">Juventus Classic</div>
+                <div class="tim-chip muncul">Lazio Classic</div>
+                <div class="tim-chip muncul">Liverpool Classic</div>
+                <div class="tim-chip muncul">Mancity 2011-2012</div>
+                <div class="tim-chip muncul">Man United 98-99</div>
+                <div class="tim-chip muncul">Man United 2007</div>
+                <div class="tim-chip muncul">Madrid Classic</div>
+                <div class="tim-chip muncul">Parma 1998-1999</div>
+            </div>
+
+            <div class="dua-kolom">
+                <div class="panel kaca muncul">
+                    <h4>Liga Tambahan</h4>
+                    <div class="pil-baris">
+                        <span class="pil">Bundesliga 2</span>
+                        <span class="pil hijau">Liga 1 BRI</span>
+                        <span class="pil">Liga 2 Pegadaian</span>
+                        <span class="pil">Liga 3 Nusantara</span>
+                        <span class="pil kuning">Saudi Pro League</span>
+                        <span class="pil">Malaysia Super League</span>
+                    </div>
+                </div>
+                <div class="panel kaca muncul" style="--u:1">
+                    <h4 class="kuning">Stadium Fantasy</h4>
+                    <div class="stadion"><svg class="ik" aria-hidden="true"><use href="#i-map-pin"/></svg> Lapangan Daeng Gassing</div>
+                    <div class="stadion"><svg class="ik" aria-hidden="true"><use href="#i-map-pin"/></svg> Land of Dawn</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PES 2026 -->
+    <section class="bagian" id="pes2026">
+        <div class="wadah">
+            <div class="kepala-bagian muncul"><span class="atas">Flagship</span><h2>PES 2026</h2><p>Versi PC dengan lisensi HWID, atau paket PS4 HEN lengkap dengan hardisk.</p><div class="garis-bawah"></div></div>
+            <div class="produk-grid dua">
+                <article class="produk unggulan muncul">
+                    <span class="pita">Recommended</span>
+                    <div class="produk-ik"><svg class="ik" aria-hidden="true"><use href="#i-monitor"/></svg></div>
+                    <h3>PES 2026 PC Version</h3>
+                    <p class="produk-sub">Patch PC terlengkap</p>
+                    <div class="desk">
+                        <span class="atas">Deskripsi produk</span>
+                        <p>Patch PC terlengkap dan terbaru untuk PES di komputer. Sistem lisensi HWID memastikan keamanan dan eksklusivitas akses. Dapatkan free update selama 1 tahun penuh termasuk update transfer, kits, face pemain, dan fitur baru!</p>
+                        <div class="chip-baris"><span class="chip">🔐 Sistem HWID</span><span class="chip">✅ Free Update 1 Tahun</span><span class="chip">✅ Liga Indonesia</span><span class="chip">✅ Fantasy Team</span></div>
+                    </div>
+                    <div class="harga"><b>Rp 200.000</b><span>Free update 1 tahun full · Sistem keamanan HWID</span></div>
+                    <button class="btn-preview" type="button" onclick="openPreview('pes2026pc')"><svg class="ik" aria-hidden="true"><use href="#i-play-circle"/></svg> Lihat Preview</button>
+                    <button class="btn penuh" type="button" onclick="openModal()">Order Sekarang <svg class="ik" aria-hidden="true"><use href="#i-shopping-bag"/></svg></button>
+                </article>
+                <article class="produk muncul" style="--u:1">
+                    <div class="produk-ik"><svg class="ik" aria-hidden="true"><use href="#i-gamepad-2"/></svg></div>
+                    <h3>PES 2026 PS4 HEN</h3>
+                    <p class="produk-sub">Paket lengkap + hardisk 160 GB</p>
+                    <div class="desk">
+                        <span class="atas">Deskripsi produk</span>
+                        <p>Paket lengkap PES 2026 untuk PS4 HEN. Sudah termasuk hardisk 160GB siap install format PKG. Tinggal colok dan main! Gratis update sampai 30 Mei 2026. Semua fitur Daeng Patch sudah tersedia termasuk Liga Indonesia.</p>
+                        <div class="chip-baris"><span class="chip">✅ HDD 160GB</span><span class="chip">✅ Format PKG</span><span class="chip">✅ Siap Install</span><span class="chip">✅ Update s/d Mei 2026</span></div>
+                    </div>
+                    <div class="harga"><b>Rp 350.000</b><span>Termasuk hardisk 160 GB (format PKG) · Gratis update hingga 30 Mei 2026</span></div>
+                    <button class="btn-preview" type="button" onclick="openPreview('pes2026ps4')"><svg class="ik" aria-hidden="true"><use href="#i-play-circle"/></svg> Lihat Preview</button>
+                    <a class="btn2 penuh" href="https://s.shopee.co.id/5Anse4ofFA" target="_blank" rel="noopener">Via Shopee <svg class="ik" aria-hidden="true"><use href="#i-external-link"/></svg></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- eFOOTBALL 2027 -->
+    <section class="bagian" id="efootball">
+        <div class="wadah">
+            <div class="kepala-bagian muncul"><span class="atas">Baru</span><h2>eFootball 2027</h2><p>Khusus konsol PS4 HEN &amp; PS5 HEN.</p><div class="garis-bawah"></div></div>
+            <div class="produk-grid satu">
+                <article class="produk unggulan muncul">
+                    <span class="pita">New</span>
+                    <div class="produk-ik"><svg class="ik" aria-hidden="true"><use href="#i-gamepad-2"/></svg></div>
+                    <h3>eFootball 2027</h3>
+                    <div class="platform"><span>PS4 HEN</span><span>PS5 HEN</span></div>
+                    <div class="desk">
+                        <span class="atas">Deskripsi produk</span>
+                        <p>eFootball 2027 khusus untuk konsol PS4 HEN dan PS5 HEN. Hubungi admin untuk info lengkap fitur dan cara pasangnya.</p>
+                        <div class="chip-baris"><span class="chip">✅ PS4 HEN</span><span class="chip">✅ PS5 HEN</span></div>
+                    </div>
+                    <div class="harga"><b>Rp 150.000</b><span>Untuk PS4 HEN &amp; PS5 HEN</span></div>
+                    <button class="btn-preview" type="button" onclick="openPreview('efootball2027')"><svg class="ik" aria-hidden="true"><use href="#i-play-circle"/></svg> Lihat Preview</button>
+                    <button class="btn penuh" type="button" onclick="orderWA('eFootball 2027 (PS4 HEN / PS5 HEN)')">Order Now <svg class="ik" aria-hidden="true"><use href="#i-shopping-bag"/></svg></button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAME PS4 HEN -->
+    <section class="bagian" id="ps4">
+        <div class="wadah">
+            <div class="kepala-bagian muncul"><span class="atas">Game PS4</span><h2>PS4 HEN Mod Collection</h2><div class="garis-bawah"></div></div>
+            <div class="produk-grid tiga">
+                <article class="produk muncul">
+                    <span class="pita jingga">Popular</span>
+                    <div class="produk-ik jingga"><svg class="ik" aria-hidden="true"><use href="#i-zap"/></svg></div>
+                    <h3>Naruto x Boruto Storm Connections</h3>
+                    <p class="produk-sub">Mod Bahasa Indonesia</p>
+                    <div class="desk">
+                        <span class="atas">Deskripsi produk</span>
+                        <p>Mod Bahasa Indonesia untuk Naruto x Boruto Storm Connections di PS4 HEN. Semua teks dalam game, subtitle cutscene, dan menu sudah diterjemahkan ke Bahasa Indonesia. Cocok untuk yang kesulitan memahami Bahasa Inggris.</p>
+                        <div class="chip-baris"><span class="chip">✅ Full Text Indo</span><span class="chip">✅ Subtitle Cutscene</span><span class="chip">✅ PS4 HEN</span></div>
+                    </div>
+                    <div class="harga"><b>Rp 50.000</b><span>Full text &amp; subtitle Indonesia</span></div>
+                    <button class="btn-preview" type="button" onclick="openPreview('naruto')"><svg class="ik" aria-hidden="true"><use href="#i-play-circle"/></svg> Lihat Preview</button>
+                    <button class="btn penuh" type="button" onclick="orderWA('Naruto Boruto Connections Mod Indo')">Order Now <svg class="ik" aria-hidden="true"><use href="#i-shopping-bag"/></svg></button>
+                </article>
+                <article class="produk muncul" style="--u:1">
+                    <span class="pita hijau">Best Mod</span>
+                    <div class="produk-ik hijau"><svg class="ik" aria-hidden="true"><use href="#i-layout-dashboard"/></svg></div>
+                    <h3>GTA 5 Mod Indonesia Bundle</h3>
+                    <p class="produk-sub">Mod menu + nuansa Indonesia</p>
+                    <div class="desk">
+                        <span class="atas" style="color:var(--hijau)">📢 Ketentuan pembelian Mod GTA 5 DAENG</span>
+                        <p>🔑 Sistem Aktivasi KEY | Offline System</p>
+                        <div class="paket"><span><b>👤 Pengguna Pribadi</b><small>1 KEY untuk 1 unit PS4</small></span><strong>Rp150.000</strong></div>
+                        <div class="paket"><span><b>🎮 Paket Rentalan</b><small>10 KEY, masing-masing 1 unit PS4</small></span><strong>Rp200.000</strong></div>
+                        <p style="margin:12px 0 0">✅ FREE UPDATE SELAMANYA · 🚫 Dilarang menjual / membagikan mod lewat link maupun file online.</p>
+                        <button type="button" class="btn-ketentuan" onclick="bukaKetentuan()">Baca ketentuan lengkap</button>
+                        <div class="chip-baris"><span class="chip">✅ Mod Menu</span><span class="chip">✅ Texture Indo</span><span class="chip">✅ Bahasa Indo</span></div>
+                    </div>
+                    <div class="harga"><b>Rp 150.000</b><span>Paket pribadi · 1 KEY / 1 PS4 · Free update selamanya</span></div>
+                    <button class="btn-preview" type="button" onclick="openPreview('gta5')"><svg class="ik" aria-hidden="true"><use href="#i-play-circle"/></svg> Lihat Preview</button>
+                    <button class="btn penuh" type="button" onclick="orderWA('GTA 5 Mod DAENG - Paket Pengguna Pribadi (1 KEY, Rp150.000)')">Order Now <svg class="ik" aria-hidden="true"><use href="#i-shopping-bag"/></svg></button>
+                    <button class="btn-garis" type="button" onclick="orderWA('GTA 5 Mod DAENG - Paket Rentalan (10 KEY, Rp200.000)')">Order Paket Rentalan · Rp200.000</button>
+                </article>
+                <article class="produk muncul" style="--u:2">
+                    <span class="pita">New Season</span>
+                    <div class="produk-ik"><svg class="ik" aria-hidden="true"><use href="#i-trophy"/></svg></div>
+                    <h3>PES 2018 Season 2026</h3>
+                    <p class="produk-sub">Latest update PS4 HEN</p>
+                    <div class="desk">
+                        <span class="atas">Deskripsi produk</span>
+                        <p>Yang punya PS4 HEN merapat! Ada Update Terbaru PES 2018 untuk musim 2026 nih.</p>
+                        <p>Gak cuma menang di update pemain dan baju baru, patch ini juga membawakan Gameplay ala PS3. Karakter permainan jadi lebih solid, warna rumput pas (gak bikin sakit mata), dan pastinya gameplay terasa sangat smooth dan responsif saat dimainkan! Plus, kalau kalian juara Liga Inggris, pialanya sudah pakai Real Trophy Premier League yang asli!!</p>
+                        <div class="chip-baris"><span class="chip">✅ Transfer 2026</span><span class="chip">✅ Kits Terbaru</span><span class="chip">✅ HD Face</span><span class="chip">✅ PS4 HEN</span></div>
+                    </div>
+                    <div class="harga"><b>Rp 150.000</b><span>Transfer 2026 · Kits · HD face update</span></div>
+                    <button class="btn-preview" type="button" onclick="openPreview('pes2018')"><svg class="ik" aria-hidden="true"><use href="#i-play-circle"/></svg> Lihat Preview</button>
+                    <button class="btn penuh" type="button" onclick="orderWA('PES 2018 Season 2026')">Order Now <svg class="ik" aria-hidden="true"><use href="#i-shopping-bag"/></svg></button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bagian" id="faq">
+        <div class="wadah">
+            <div class="kepala-bagian muncul"><span class="atas">Bantuan</span><h2>Pertanyaan Umum</h2><div class="garis-bawah"></div></div>
+            <div class="faq">
+                <div class="faq-item kaca muncul">
+                    <button class="faq-tanya" type="button" aria-expanded="false" onclick="toggleFaq(this)">Apakah patch ini aman untuk main online?<svg class="ik" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+                    <div class="faq-jawab"><div><p>Untuk PC Version, kami sangat menyarankan untuk bermain secara OFFLINE guna menghindari banned dari developer. Untuk PS4 HEN, semua dimainkan secara OFFLINE.</p></div></div>
+                </div>
+                <div class="faq-item kaca muncul" style="--u:1">
+                    <button class="faq-tanya" type="button" aria-expanded="false" onclick="toggleFaq(this)">Bagaimana jika saya ganti PC/Laptop?<svg class="ik" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+                    <div class="faq-jawab"><div><p>Karena sistem HWID terkunci pada satu perangkat, jika Anda mengganti hardware utama (seperti Motherboard), Anda perlu melakukan registrasi lisensi ulang. Hubungi admin untuk bantuan lebih lanjut.</p></div></div>
+                </div>
+                <div class="faq-item kaca muncul" style="--u:2">
+                    <button class="faq-tanya" type="button" aria-expanded="false" onclick="toggleFaq(this)">Apakah ada panduan cara instalnya?<svg class="ik" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+                    <div class="faq-jawab"><div><p>Tentu! Setiap pembelian sudah termasuk akses ke grup khusus dan video tutorial instalasi yang sangat mudah dipahami, bahkan untuk pemula sekalipun.</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AJAKAN -->
+    <section class="bagian" style="padding-top:20px">
+        <div class="wadah">
+            <div class="ajakan muncul">
+                <div><span class="atas">Ada pertanyaan?</span><h3>Chat admin sekarang</h3><p>Jangan ragu hubungi admin kami! Kami siap membantu kamu memilih produk yang paling sesuai.</p></div>
+                <a class="btn-wa" href="https://wa.me/6287777747477" target="_blank" rel="noopener"><svg class="ik" aria-hidden="true"><use href="#i-message-circle"/></svg> Tanya Admin</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="wadah">
+        <a class="brand" href="#atas"><span class="logo" aria-hidden="true"><svg viewBox="0 0 32 32"><use href="#logo-bola"/></svg></span><span style="text-align:left"><b>DAENG PATCH</b><small>STORE</small></span></a>
+        <div class="sosmed">
+            <a href="https://www.facebook.com/share/1DgPNywNaQ/" target="_blank" rel="noopener" aria-label="Facebook DAENG PATCH"><svg class="ik isi" aria-hidden="true"><use href="#i-x-facebook"/></svg></a>
+            <a href="https://www.tiktok.com/@daeng_patch?_r=1&amp;_t=ZS-94pTyR3XCdc" target="_blank" rel="noopener" aria-label="TikTok DAENG PATCH"><svg class="ik isi" aria-hidden="true"><use href="#i-x-tiktok"/></svg></a>
+            <a href="https://wa.me/6287777747477" target="_blank" rel="noopener" aria-label="WhatsApp DAENG PATCH"><svg class="ik" aria-hidden="true"><use href="#i-message-circle"/></svg></a>
+        </div>
+        <p class="hak">&copy; 2026 DAENG PATCH STUDIO - INDONESIA MODDER</p>
+    </div>
+</footer>
+
+<a class="wa-apung" href="https://wa.me/6287777747477" target="_blank" rel="noopener" aria-label="Tanya admin lewat WhatsApp"><svg class="ik" aria-hidden="true"><use href="#i-message-circle"/></svg><span>Tanya Admin</span></a>
+
+<!-- JENDELA: ORDER PES 2026 PC -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-judul">
+    <div class="modal-latar" onclick="closeModal()"></div>
+    <div class="modal-isi">
+        <div class="modal-kepala"><div><span class="atas">PES 2026 PC Version</span><h3 id="modal-judul">Konfirmasi Pesanan</h3></div><button class="tutup" type="button" aria-label="Tutup" onclick="closeModal()"><svg class="ik" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+        <div class="blok merah"><h4>Penting: baca sebelum memesan</h4><p>Sebelum melakukan pemesanan Daeng Patch, harap baca dan pahami ketentuan sistem lisensi kami berikut ini:</p></div>
+        <div class="blok">
+            <h4>🔐 Sistem Keamanan HWID</h4>
+            <p>Patch ini menggunakan fitur HWID (Hardware ID), yang artinya akses terkunci pada perangkat yang Anda gunakan.</p>
+            <ul><li><b>Lisensi eksklusif:</b> hanya pengguna dengan lisensi aktif yang dapat mengakses fitur patch.</li><li><b>Satu perangkat:</b> pastikan lisensi diaktifkan pada PC utama yang Anda gunakan.</li></ul>
+        </div>
+        <div class="blok">
+            <h4>📶 Akses Offline &amp; Update</h4>
+            <p>Kami memberikan fleksibilitas agar Anda tetap bisa bermain kapan saja:</p>
+            <ul><li><b>Main tanpa internet:</b> Anda tetap bisa melakukan Start Game dan bermain meskipun dalam kondisi Offline.</li><li><b>Ketentuan update:</b> Anda tidak dapat melakukan update ke versi terbaru jika lisensi Anda tidak aktif atau sudah kedaluwarsa.</li></ul>
+        </div>
+        <div class="blok">
+            <h4>📩 Konfirmasi Pembayaran</h4>
+            <p>Setelah melakukan transfer, mohon segera kirimkan data berikut untuk proses aktivasi:</p>
+            <ul><li>Bukti transfer (foto/screenshot)</li><li>Alamat Gmail Anda</li><li>Nama lengkap Anda</li></ul>
+            <p style="margin-top:8px">Kirimkan data tersebut ke admin agar lisensi dan akses patch bisa segera kami proses. Terima kasih!</p>
+        </div>
+        <label class="isian-lbl" for="name">Nama lengkap</label>
+        <input class="isian" id="name" type="text" autocomplete="name" placeholder="Nama kamu">
+        <label class="isian-lbl" for="email">Alamat Gmail</label>
+        <input class="isian" id="email" type="email" autocomplete="email" placeholder="contoh@gmail.com">
+        <div class="rekening"><div><small>SeaBank transfer</small><b id="acc-number">901397995339</b><small>A/N DEDI WAHYUDI</small></div><button class="salin-btn" type="button" aria-label="Salin nomor rekening" onclick="copyAcc()"><svg class="ik" aria-hidden="true"><use href="#i-copy"/></svg></button></div>
+        <button class="btn-wa penuh" type="button" onclick="sendWA()">Konfirmasi via WhatsApp <svg class="ik" aria-hidden="true"><use href="#i-message-circle"/></svg></button>
+    </div>
+</div>
+
+<!-- JENDELA: PREVIEW PRODUK -->
+<div class="modal" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+    <div class="modal-latar" onclick="closePreview()"></div>
+    <div class="modal-isi" style="max-width:760px">
+        <div class="modal-kepala"><div><span class="atas" id="preview-badge"></span><h3 id="preview-title"></h3></div><button class="tutup" type="button" aria-label="Tutup" onclick="closePreview()"><svg class="ik" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+        <div class="pratinjau-utama" id="preview-main"></div>
+        <div class="pratinjau-thumb" id="preview-thumb-grid"></div>
+        <div class="pratinjau-kaki"><b id="preview-price"></b><button class="btn" type="button" id="preview-order-btn"></button></div>
+    </div>
+</div>
+
+<!-- JENDELA: KETENTUAN MOD GTA 5 -->
+<div class="modal" id="ketentuan-modal" role="dialog" aria-modal="true" aria-labelledby="ketentuan-judul">
+    <div class="modal-latar" onclick="tutupKetentuan()"></div>
+    <div class="modal-isi">
+        <div class="modal-kepala"><div><span class="atas" style="color:var(--hijau)">🔑 Sistem Aktivasi KEY | Offline System</span><h3 id="ketentuan-judul">📢 Ketentuan Pembelian Mod GTA 5 DAENG</h3></div><button class="tutup" type="button" aria-label="Tutup" onclick="tutupKetentuan()"><svg class="ik" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+        <p style="margin:0 0 14px;color:#c3cce0">Harap membaca ketentuan berikut sebelum membeli. Setiap pembeli dan mitra wajib mematuhi aturan DAENG PATCH.</p>
+        <div class="blok"><h4>👤 1. Paket Pengguna Pribadi</h4><div class="hrg">Harga: Rp150.000</div>
+            <ul><li>Mendapatkan 1 KEY untuk 1 unit PS4.</li><li>Penggunaan dengan sistem offline.</li><li>FREE UPDATE SELAMANYA tanpa biaya tambahan.</li><li>Dilarang menjual atau membagikan mod melalui link maupun file online.</li></ul></div>
+        <div class="blok"><h4>🎮 2. Paket Rentalan</h4><div class="hrg">Harga: Rp200.000</div>
+            <ul><li>Mendapatkan 10 KEY, masing-masing untuk 1 unit PS4.</li><li>Menggunakan sistem offline.</li><li>FREE UPDATE SELAMANYA.</li></ul></div>
+        <div class="blok"><h4>🚫 3. Larangan Penjualan Melalui Link</h4>
+            <p>Mod GTA 5 DAENG hanya boleh dipasang langsung ke unit PS4, dengan sistem offline.</p>
+            <p>Dilarang menjual atau membagikan mod melalui link unduhan, Google Drive, MediaFire, marketplace, media sosial, website, maupun distribusi file online lainnya.</p></div>
+        <div class="blok merah"><h4>⚠️ 4. Sanksi Pelanggaran</h4>
+            <p>Pelanggaran dapat mengakibatkan:</p>
+            <ul class="polos"><li>❌ Seluruh KEY dicabut dan dinonaktifkan.</li><li>❌ Pemblokiran permanen.</li><li>❌ Tidak dapat membeli KEY kembali.</li></ul>
+            <p style="margin-top:8px;color:var(--merah);font-weight:600">Tidak ada toleransi terhadap pelanggaran ketentuan ini.</p></div>
+        <div class="blok"><h4>🎁 5. Bonus &amp; Ketentuan Umum</h4>
+            <p>Semua paket mendapatkan FREE UPDATE SELAMANYA tanpa biaya pembaruan tambahan.</p>
+            <p>Ketentuan utama:</p>
+            <ul class="polos"><li>🔑 1 KEY = 1 unit PS4.</li><li>🎮 Penggunaan mod dengan sistem offline.</li><li>🚫 Penjualan atau distribusi melalui link dan file online dilarang.</li></ul></div>
+        <div class="blok"><h4>🔒 Penutup</h4>
+            <p>Dengan melakukan pembelian, pembeli dianggap telah membaca dan menyetujui seluruh ketentuan DAENG PATCH. Pelanggaran dapat dikenai sanksi sesuai aturan yang berlaku.</p>
+            <p>Terima kasih telah mendukung DAENG PATCH! 🔥</p></div>
+        <div style="text-align:center;margin-top:18px">
+            <p style="margin:0;font:700 15px var(--judul);letter-spacing:.2em">DAENG PATCH | GTA 5 MOD</p>
+            <p style="margin:4px 0 16px;color:var(--redup);font-size:14px">One KEY for One PS4 • Offline System • Free Updates Forever 🎮</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+                <button class="btn" style="flex:1 1 220px" type="button" onclick="tutupKetentuan(); orderWA('GTA 5 Mod DAENG - Paket Pengguna Pribadi (1 KEY, Rp150.000)')">Order Pribadi · Rp150.000</button>
+                <button class="btn2" style="flex:1 1 220px" type="button" onclick="tutupKetentuan(); orderWA('GTA 5 Mod DAENG - Paket Rentalan (10 KEY, Rp200.000)')">Order Rentalan · Rp200.000</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Navigasi -->
-    <nav class="fixed top-12 w-full z-50 glass border-b border-slate-800 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-lg shadow-red-600/20">D</div>
-                <span class="font-black text-2xl tracking-tighter text-white uppercase italic">DAENG <span class="text-red-500">PATCH</span></span>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-8 text-xs font-black uppercase tracking-widest">
-                <a href="#features" class="text-slate-400 hover:text-white transition-colors">Daftar Fitur</a>
-                <a href="#teams" class="text-slate-400 hover:text-white transition-colors">Katalog Tim</a>
-                <a href="#ps4-catalog" class="text-slate-400 hover:text-white transition-colors">Game PS4</a>
-                <a href="#pricing" class="text-slate-400 hover:text-white transition-colors">PES 2026</a>
-                <a href="https://wa.me/6287777747477" class="flex items-center gap-2 bg-red-600 px-6 py-3 rounded-full text-xs font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-600/20">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> HUBUNGI KAMI
-                </a>
-            </div>
+<div class="notif" id="notif" role="status" aria-live="polite"></div>
 
-            <button class="md:hidden text-white p-2" onclick="toggleMenu()">
-                <i data-lucide="menu" id="menu-icon"></i>
-            </button>
-        </div>
+<script>
+// ===================== DAENG PATCH STORE =====================
+const WA = '6287777747477';
 
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/98 backdrop-blur-xl border-b border-slate-800 absolute top-20 left-0 w-full p-6 space-y-4 font-black text-center text-xs tracking-widest uppercase">
-            <a href="#features" class="block py-3 text-slate-400 border-b border-slate-900" onclick="toggleMenu()">DAFTAR FITUR</a>
-            <a href="#teams" class="block py-3 text-slate-400 border-b border-slate-900" onclick="toggleMenu()">KATALOG TIM</a>
-            <a href="#ps4-catalog" class="block py-3 text-slate-400 border-b border-slate-900" onclick="toggleMenu()">GAME PS4</a>
-            <a href="#pricing" class="block py-3 text-slate-400 border-b border-slate-900" onclick="toggleMenu()">PES 2026</a>
-            <a href="https://wa.me/6287777747477" class="block py-3 text-red-500 font-black uppercase text-sm" onclick="toggleMenu()">HUBUNGI KAMI</a>
-        </div>
-    </nav>
+// ---------- menu HP ----------
+function toggleMenu(buka) {
+    const m = document.getElementById('menu'), b = document.getElementById('burger');
+    const jadi = typeof buka === 'boolean' ? buka : !m.classList.contains('buka');
+    m.classList.toggle('buka', jadi);
+    b.setAttribute('aria-expanded', jadi ? 'true' : 'false');
+}
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    <!-- Bagian Hero -->
-    <section class="pt-60 pb-20 px-6 relative overflow-hidden text-center">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-red-600/10 blur-[150px] rounded-full -z-10 animate-pulse"></div>
-        <div class="max-w-5xl mx-auto">
-            <div class="inline-flex items-center gap-2 bg-red-600/10 border border-red-600/20 text-red-500 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8">
-                🔥 NEW UPDATE: WINTER SEASON 25/26
-            </div>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-none italic tracking-tighter uppercase text-white">
-                DAENG PATCH <br />
-                <span class="text-red-600 text-7xl md:text-9xl">STORE</span>
-            </h1>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#pricing" class="bg-white text-black px-12 py-6 rounded-2xl font-black text-lg hover:scale-105 transition-all flex items-center justify-center gap-3">
-                    ORDER PES 2026 <i data-lucide="shopping-cart"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bagian Galeri (LIVE VIEW FOCUS) -->
-    <section class="py-24 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-16 text-center">
-                <h2 class="text-4xl font-black uppercase italic text-white mb-4 tracking-tighter uppercase">PREVIEW MOD GALLERY</h2>
-                <div class="h-1.5 w-24 bg-red-600 mx-auto"></div>
-                <p class="text-slate-500 text-[10px] font-black mt-4 uppercase tracking-[0.3em]">Tampilan Langsung dari Daeng Patch Update 2026</p>
-            </div>
-            
-            <!-- Grid Gambar (Pengguna Melihat Langsung Tanpa Tombol) -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                
-                <!-- Slot 1 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://iili.io/qNcUbIa.jpg" 
-                         alt="[Preview Update 1]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')"
-                         onerror="this.src='https://placehold.co/600x400/1e293b/64748b?text=Image+Not+Found'">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Screenshot Update #1</span>
-                    </div>
-                </div>
-
-                <!-- Slot 2 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/3mpBSw69/FB-IMG-1773968089789.jpg"
-                         alt="[Preview Update 2]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Kits & Jersey Musim 25/26</span>
-                    </div>
-                </div>
-
-                <!-- Slot 3 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/84RX40YW/Screenshot-2026-03-20-08-50-23-798-com-ss-android-ugc-trill-edit.jpg" 
-                         alt="[Preview Update 3]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Detail Stadion BRI Liga 1</span>
-                    </div>
-                </div>
-
-                <!-- Slot 4 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/1GxB5SQB/Screenshot-2026-03-20-08-55-30-358-com-facebook-katana-edit.jpg" 
-                         alt="[Preview Update 4]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">UI & Menu Utama Terbaru</span>
-                    </div>
-                </div>
-
-                <!-- Slot 5 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/zVphKVwK/FB-IMG-1773968252726.jpg" 
-                         alt="[Preview Update 5]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Line-up Fantasy Team</span>
-                    </div>
-                </div>
-
-                <!-- Slot 6 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/dwQqcJ6w/FB-IMG-1773968282239.jpg" 
-                         alt="[Preview Update 6]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Master League Real Life Mod</span>
-                    </div>
-                </div>
-
-                <!-- Slot 7 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/VWGtQy51/FB-IMG-1773968084605.jpg" 
-                         alt="[Preview Update 7]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Gameplay Realistis</span>
-                    </div>
-                </div>
-
-                <!-- Slot 8 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/VWysknGL/FB-IMG-1773971940428.jpg" 
-                         alt="[Preview Update 8]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Face Model Premium</span>
-                    </div>
-                </div>
-
-                <!-- Slot 9 -->
-                <div class="gallery-item aspect-video bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden relative group loading-skeleton">
-                    <img src="https://i.ibb.co.com/zWXjDgFy/FB-IMG-1773971932278.jpg" 
-                         alt="[Preview Update 9]" 
-                         class="gallery-img w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('loading-skeleton')">
-                    <div class="absolute bottom-0 w-full bg-slate-950/60 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span class="text-[8px] font-black text-white uppercase tracking-widest italic">Face Model Premium</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Daftar Fitur Lengkap -->
-    <section id="features" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-16 text-center">
-                <h2 class="text-4xl font-black uppercase italic text-white mb-4 tracking-tighter">Daftar Fitur Lengkap</h2>
-                <div class="h-1.5 w-24 bg-red-600 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="calendar-check"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Full Transfer Winter 25/26</h4></div>
-                </div>
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="smile"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Banyak Face Premium</h4></div>
-                </div>
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="languages"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Fitur Bahasa Indonesia</h4></div>
-                </div>
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="shirt"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Kits Kualitas Premium</h4></div>
-                </div>
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="trophy"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Real Trophy Model</h4></div>
-                </div>
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="star"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Fitur Man of the Match</h4></div>
-                </div>
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="door-open"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">New Prematch Locker Room</h4></div>
-                </div>
-                <div class="feature-item border-red-600/40 relative">
-                    <div class="absolute -top-2 -right-2 bg-red-600 text-[8px] px-2 py-0.5 rounded-full font-black">NEW</div>
-                    <div class="text-red-500"><i data-lucide="swords"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Uefa Conference League</h4></div>
-                </div>
-                <div class="feature-item border-green-600/40 relative">
-                    <div class="absolute -top-2 -right-2 bg-green-600 text-[8px] px-2 py-0.5 rounded-full font-black italic">HOT 🔥</div>
-                    <div class="text-green-500"><i data-lucide="mic"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">Komentator Indo (Demo)</h4></div>
-                </div>
-                <div class="feature-item">
-                    <div class="text-red-500"><i data-lucide="map-pin"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic">LIGA 1, 2 & 3 INDONESIA</h4></div>
-                </div>
-                <div class="feature-item border-blue-600/40">
-                    <div class="text-blue-500"><i data-lucide="users"></i></div>
-                    <div><h4 class="font-black text-white text-sm uppercase italic text-blue-400">Full Real Face Liga 1 BRI</h4></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Katalog Tim Section -->
-    <section id="teams" class="py-24 px-6 bg-slate-900/20">
-        <div class="max-w-6xl mx-auto">
-            
-            <!-- Tim Fantasy -->
-            <div class="mb-20">
-                <div class="flex items-center gap-4 mb-10">
-                    <div class="w-2 h-10 bg-red-600"></div>
-                    <div>
-                        <h2 class="text-3xl font-black uppercase italic text-white leading-none">FANTASY TEAM</h2>
-                        <p class="text-slate-500 text-xs mt-1 font-bold uppercase tracking-widest">Total 20 Tim Universe & Karakter Spesial</p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                    <div class="team-badge">ALL UNIVERSE</div>
-                    <div class="team-badge">ALL UNIVERSE 2</div>
-                    <div class="team-badge">DRAGONBALL FC</div>
-                    <div class="team-badge">FIFA STREET</div>
-                    <div class="team-badge">GEPENG FC</div>
-                    <div class="team-badge">INDONESIA PRIDE</div>
-                    <div class="team-badge">JUMP FORCE FC</div>
-                    <div class="team-badge">KUDA PONY FC</div>
-                    <div class="team-badge">LOLI FC</div>
-                    <div class="team-badge">MAIN CHARACTER FC</div>
-                    <div class="team-badge">MARVEL AVENGER</div>
-                    <div class="team-badge">MOBILE LEGEND FC</div>
-                    <div class="team-badge">TAWHEED FC</div>
-                    <div class="team-badge">TSUBASA FC</div>
-                    <div class="team-badge">WOMEN FC</div>
-                    <div class="team-badge">WWE FC</div>
-                    <div class="team-badge">RAPTORSTRIKE FC</div>
-                    <div class="team-badge text-white border-red-600">WARRIORS COLLOSEUM</div>
-                    <div class="team-badge text-white border-red-600">ONE PIECE</div>
-                    <div class="team-badge text-white border-red-600">UNIVERSE 3</div>
-                </div>
-            </div>
-
-            <!-- Tim Classic -->
-            <div class="mb-20">
-                <div class="flex items-center gap-4 mb-10">
-                    <div class="w-2 h-10 bg-slate-600"></div>
-                    <div>
-                        <h2 class="text-3xl font-black uppercase italic text-white leading-none">CLASSIC TEAM</h2>
-                        <p class="text-slate-500 text-xs mt-1 font-bold uppercase tracking-widest">Koleksi Legenda Dunia & Klub Bersejarah</p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                    <div class="team-badge border-slate-700 text-slate-300 bg-slate-900">INDONESIA CLASSIC AFF 2010</div>
-                    <div class="team-badge border-slate-700 text-slate-300 bg-slate-900">BRAZIL 2006</div>
-                    <div class="team-badge border-slate-700 text-slate-300 bg-slate-900">HOLLAND 2010</div>
-                    <div class="team-badge border-slate-700 text-slate-300 bg-slate-900">ITALY 2006</div>
-                    <div class="team-badge border-slate-700 text-slate-300 bg-slate-900">SPAIN 2010</div>
-                    <div class="team-badge">AC MILAN CLASSIC</div>
-                    <div class="team-badge">AREMA 2007</div>
-                    <div class="team-badge">ARSENAL CLASSIC</div>
-                    <div class="team-badge">AS ROMA CLASSIC</div>
-                    <div class="team-badge">ATL CLASSIC</div>
-                    <div class="team-badge">MUNCHEN CLASSIC</div>
-                    <div class="team-badge">CHELSEA CLASSIC</div>
-                    <div class="team-badge">INTERMILAN CLASSIC</div>
-                    <div class="team-badge">JUVENTUS CLASSIC</div>
-                    <div class="team-badge">LAZIO CLASSIC</div>
-                    <div class="team-badge">LIVERPOOL CLASSIC</div>
-                    <div class="team-badge">MANCITY 2011-2012</div>
-                    <div class="team-badge">MAN UNITED 98-99</div>
-                    <div class="team-badge">MAN UNITED 2007</div>
-                    <div class="team-badge">MADRID CLASSIC</div>
-                    <div class="team-badge">PARMA 1998-1999</div>
-                </div>
-            </div>
-            
-            <!-- Ringkasan -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-950 p-8 rounded-[2.5rem] border border-slate-800">
-                    <h4 class="text-xs font-black text-blue-500 uppercase tracking-widest mb-4">Penambahan Liga</h4>
-                    <div class="flex flex-wrap gap-2 text-[10px] font-bold">
-                        <span class="px-3 py-1 bg-slate-900 rounded-full">BUNDESLIGA 2</span>
-                        <span class="px-3 py-1 bg-slate-900 rounded-full text-green-500 border border-green-900/30">LIGA 1 BRI</span>
-                        <span class="px-3 py-1 bg-slate-900 rounded-full">LIGA 2 PEGADAIAN</span>
-                        <span class="px-3 py-1 bg-slate-900 rounded-full">LIGA 3 NUSANTARA</span>
-                        <span class="px-3 py-1 bg-slate-900 rounded-full text-yellow-500">SAUDI PRO LEAGUE</span>
-                        <span class="px-3 py-1 bg-slate-900 rounded-full text-white italic">MALAYSIA SUPER LEAGUE</span>
-                    </div>
-                </div>
-                <div class="bg-slate-950 p-8 rounded-[2.5rem] border border-slate-800">
-                    <h4 class="text-xs font-black text-yellow-500 uppercase tracking-widest mb-4">Stadium Fantasy</h4>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex items-center gap-3 p-3 bg-slate-900 rounded-xl">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-yellow-500"></i>
-                            <span class="text-xs font-black uppercase">LAPANGAN DAENG GASSING</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-3 bg-slate-900 rounded-xl">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-yellow-500"></i>
-                            <span class="text-xs font-black uppercase">LAND OF DAWN</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KATALOG MOD PS4 -->
-    <section id="ps4-catalog" class="py-24 px-6 bg-slate-950">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-16 text-center">
-                <h2 class="text-4xl font-black uppercase italic text-white mb-4 tracking-tighter text-white uppercase">PS4 HEN MOD COLLECTION</h2>
-                <div class="h-1.5 w-24 bg-red-600 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Naruto -->
-                <div class="group relative bg-slate-900 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-red-600/50 hover:translate-y-[-10px]">
-                    <div class="absolute -top-4 right-10 bg-orange-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">POPULAR</div>
-                    <div class="mb-6 text-center">
-                        <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-orange-500"><i data-lucide="zap" class="w-8 h-8"></i></div>
-                        <h3 class="text-2xl font-black text-white italic tracking-tighter uppercase leading-tight">NARUTO X BORUTO <br/> STORM CONNECTIONS</h3>
-                        <p class="text-red-500 text-[10px] font-black mt-2 uppercase tracking-widest">MOD BAHASA INDONESIA</p>
-                    </div>
-                    <!-- DESKRIPSI PRODUK -->
-                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-slate-800/60">
-                        <p class="text-[10px] font-black text-orange-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
-                        <p class="text-slate-400 text-xs leading-relaxed">Mod Bahasa Indonesia untuk Naruto x Boruto Storm Connections di PS4 HEN. Semua teks dalam game, subtitle cutscene, dan menu sudah diterjemahkan ke Bahasa Indonesia. Cocok untuk yang kesulitan memahami Bahasa Inggris.</p>
-                        <div class="flex flex-wrap gap-2 mt-3">
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Full Text Indo</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Subtitle Cutscene</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ PS4 HEN</span>
-                        </div>
-                    </div>
-                    <div class="mb-8 text-center">
-                        <span class="text-5xl font-black text-white tracking-tighter">Rp 50.000</span>
-                        <p class="text-slate-500 text-[10px] mt-4 font-black uppercase tracking-widest leading-relaxed">Full Text & Subtitle <br/> Indonesia Version</p>
-                    </div>
-                    <!-- TOMBOL PREVIEW -->
-                    <button class="btn-preview" onclick="openPreview('naruto')">
-                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
-                    </button>
-                    <button onclick="orderWA('Naruto Boruto Connections Mod Indo')" class="w-full py-5 rounded-2xl font-black text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/40 flex items-center justify-center gap-3 transition-all active:scale-95">
-                        ORDER NOW <i data-lucide="shopping-bag"></i>
-                    </button>
-                </div>
-
-                <!-- GTA 5 -->
-                <div class="group relative bg-slate-900 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-red-600/50 hover:translate-y-[-10px]">
-                    <div class="absolute -top-4 right-10 bg-green-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">BEST MOD</div>
-                    <div class="mb-6 text-center">
-                        <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-green-500"><i data-lucide="layout" class="w-8 h-8"></i></div>
-                        <h3 class="text-2xl font-black text-white italic tracking-tighter uppercase leading-tight">GTA 5 MOD <br/> INDONESIA BUNDLE</h3>
-                        <p class="text-red-500 text-[10px] font-black mt-2 uppercase tracking-widest">MOD MENU + NUANSA INDONESIA</p>
-                    </div>
-                    <!-- DESKRIPSI PRODUK -->
-                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-slate-800/60">
-                        <p class="text-[10px] font-black text-green-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
-                        <p class="text-slate-400 text-xs leading-relaxed">GTA 5 Rasa Indonesia untuk PS4 HEN! 🎮🔥
-
-Rasakan sensasi keliling Los Santos dengan kearifan lokal! Bundle Mod super lengkap ini menghadirkan khas Indonesia (mulai dari kendaraan,hingga lingkungan sekitar), patch Bahasa Indonesia, dan Mod Menu Cheat terlengkap.
-
-Siap-siap buat pengalaman bermain GTA 5 jadi berkali-kali lipat lebih seru dan Indonesia banget!</p>
-                        <div class="flex flex-wrap gap-2 mt-3">
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Mod Menu</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Texture Indo</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Bahasa Indo</span>
-                        </div>
-                    </div>
-                    <div class="mb-8 text-center">
-                        <span class="text-5xl font-black text-white tracking-tighter">Rp 150.000</span>
-                        <p class="text-slate-500 text-[10px] mt-4 font-black uppercase tracking-widest leading-relaxed">Bahasa Indo + Menu Cheat <br/> + KENDARAAN INDONESIA</p>
-                    </div>
-                    <!-- TOMBOL PREVIEW -->
-                    <button class="btn-preview" onclick="openPreview('gta5')">
-                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
-                    </button>
-                    <button onclick="orderWA('GTA 5 Mod Indo + Mod Menu')" class="w-full py-5 rounded-2xl font-black text-lg bg-white hover:bg-slate-200 text-black shadow-xl flex items-center justify-center gap-3 transition-all active:scale-95">
-                        ORDER NOW <i data-lucide="shopping-bag"></i>
-                    </button>
-                </div>
-
-                <!-- PES 2018 -->
-                <div class="group relative bg-slate-900 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-red-600/50 hover:translate-y-[-10px] shadow-2xl shadow-red-600/5">
-                    <div class="absolute -top-4 right-10 bg-red-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg italic">NEW SEASON</div>
-                    <div class="mb-6 text-center">
-                        <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-red-500"><i data-lucide="trophy" class="w-8 h-8"></i></div>
-                        <h3 class="text-2xl font-black text-white italic tracking-tighter uppercase leading-tight">PES 2018 <br/> SEASON 2026</h3>
-                        <p class="text-red-500 text-[10px] font-black mt-2 uppercase tracking-widest">LATEST UPDATE PS4 HEN</p>
-                    </div>
-                    <!-- DESKRIPSI PRODUK -->
-                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-slate-800/60">
-                        <p class="text-[10px] font-black text-red-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
-                        <p class="text-slate-400 text-xs leading-relaxed">Yang punya PS4 HEN merapat! Ada Update Terbaru PES 2018 untuk musim 2026 nih.
-
-Gak cuma menang di update pemain dan baju baru, patch ini juga membawakan Gameplay ala PS3. Karakter permainan jadi lebih solid, warna rumput pas (gak bikin sakit mata), dan pastinya gameplay terasa sangat smooth dan responsif saat dimainkan! Plus, kalau kalian juara Liga Inggris, pialanya sudah pakai Real Trophy Premier League yang asli!!</p>
-                        <div class="flex flex-wrap gap-2 mt-3">
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Transfer 2026</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Kits Terbaru</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ HD Face</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ PS4 HEN</span>
-                        </div>
-                    </div>
-                    <div class="mb-8 text-center">
-                        <span class="text-5xl font-black text-white tracking-tighter">Rp 150.000</span>
-                        <p class="text-slate-500 text-[10px] mt-4 font-black uppercase tracking-widest leading-relaxed">Transfer 2026 + Kits <br/> + HD Face Update</p>
-                    </div>
-                    <!-- TOMBOL PREVIEW -->
-                    <button class="btn-preview" onclick="openPreview('pes2018')">
-                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
-                    </button>
-                    <button onclick="orderWA('PES 2018 Season 2026')" class="w-full py-5 rounded-2xl font-black text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/40 flex items-center justify-center gap-3 transition-all active:scale-95">
-                        ORDER NOW <i data-lucide="shopping-bag"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bagian Harga (PES 2026 FLAGSHIP) -->
-    <section id="pricing" class="py-24 px-6 bg-slate-900/20">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-black uppercase italic text-white mb-4 tracking-tighter text-white uppercase uppercase uppercase">PES 2026 FLAGSHIP</h2>
-                <div class="h-1 w-20 bg-red-600 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- VERSI PC -->
-                <div class="group relative bg-slate-900 border-2 border-red-600 rounded-[3rem] p-10 transition-all hover:translate-y-[-10px] shadow-2xl shadow-red-600/10">
-                    <div class="absolute -top-4 right-10 bg-red-600 text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">RECOMMENDED</div>
-                    <div class="mb-6 text-center">
-                        <div class="p-4 rounded-2xl bg-slate-950 inline-block mb-4 text-red-500"><i data-lucide="monitor" class="w-8 h-8"></i></div>
-                        <h3 class="text-3xl font-black text-white italic tracking-tighter uppercase">PES 2026 PC VERSION</h3>
-                    </div>
-                    <!-- DESKRIPSI PRODUK -->
-                    <div class="mb-6 bg-slate-950 rounded-2xl p-4 border border-red-600/20">
-                        <p class="text-[10px] font-black text-red-500 uppercase tracking-widest mb-2">Deskripsi Produk</p>
-                        <p class="text-slate-400 text-xs leading-relaxed">Patch PC terlengkap dan terbaru untuk PES di komputer. Sistem lisensi HWID memastikan keamanan dan eksklusivitas akses. Dapatkan free update selama 1 tahun penuh termasuk update transfer, kits, face pemain, dan fitur baru!</p>
-                        <div class="flex flex-wrap gap-2 mt-3">
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-red-400">🔐 Sistem HWID</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Free Update 1 Tahun</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Liga Indonesia</span>
-                            <span class="px-2 py-1 bg-slate-900 rounded-full text-[9px] font-bold text-slate-400">✅ Fantasy Team</span>
-                        </div>
-                    </div>
-                    <div class="mb-8 text-center">
-                        <span class="text-5xl font-black text-white tracking-tighter">Rp 200.000</span>
-                        <p class="text-slate-500 text-[10px] mt-2 font-black uppercase tracking-widest leading-relaxed">Free update 1 tahun full <br/> <span class="text-red-500 italic block mt-1">🔐 Sistem Keamanan HWID</span></p>
-                    </div>
-                    <!-- TOMBOL PREVIEW -->
-                    <button class="btn-preview" onclick="openPreview('pes2026pc')">
-                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
-                    </button>
-                    <button onclick="openModal()" class="w-full py-6 rounded-2xl font-black text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl shadow-red-600/40 flex items-center justify-center gap-3 transition-all active:scale-95">
-                        ORDER SEKARANG <i data-lucide="shopping-bag"></i>
-                    </button>
-                </div>
-
-                <!-- PS4 HEN (DISK) - Link Shopee dikembalikan di sini -->
-                <div class="group relative bg-slate-950 border-2 border-slate-800 rounded-[3rem] p-10 transition-all hover:border-slate-700 hover:translate-y-[-10px]">
-                    <div class="mb-6 text-center">
-                        <div class="p-4 rounded-2xl bg-slate-900 inline-block mb-4 text-slate-500"><i data-lucide="gamepad-2" class="w-8 h-8"></i></div>
-                        <h3 class="text-3xl font-black text-white italic tracking-tighter uppercase">PES 2026 PS4 HEN</h3>
-                    </div>
-                    <!-- DESKRIPSI PRODUK -->
-                    <div class="mb-6 bg-slate-900 rounded-2xl p-4 border border-slate-800/60">
-                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Deskripsi Produk</p>
-                        <p class="text-slate-400 text-xs leading-relaxed">Paket lengkap PES 2026 untuk PS4 HEN. Sudah termasuk hardisk 160GB siap install format PKG. Tinggal colok dan main! Gratis update sampai 30 Mei 2026. Semua fitur Daeng Patch sudah tersedia termasuk Liga Indonesia.</p>
-                        <div class="flex flex-wrap gap-2 mt-3">
-                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ HDD 160GB</span>
-                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ Format PKG</span>
-                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ Siap Install</span>
-                            <span class="px-2 py-1 bg-slate-800 rounded-full text-[9px] font-bold text-slate-400">✅ Update s/d Mei 2026</span>
-                        </div>
-                    </div>
-                    <div class="mb-8 text-center">
-                        <span class="text-5xl font-black text-white tracking-tighter">Rp 350.000</span>
-                        <p class="text-slate-500 text-xs mt-2 font-black uppercase tracking-widest leading-relaxed text-center italic">Sudah termasuk hardisk 160gb siap instal dengan format pkg, <br/> gratis update hingga 30 mei 2026</p>
-                    </div>
-                    <!-- TOMBOL PREVIEW -->
-                    <button class="btn-preview" onclick="openPreview('pes2026ps4')">
-                        <i data-lucide="play-circle" class="w-4 h-4"></i> LIHAT PREVIEW
-                    </button>
-                    <a href="https://s.shopee.co.id/5Anse4ofFA" target="_blank" class="w-full py-6 rounded-2xl font-black text-lg bg-white hover:bg-slate-200 text-black flex items-center justify-center gap-3 transition-all active:scale-95">
-                        VIA SHOPEE <i data-lucide="external-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bagian FAQ -->
-    <section id="faq" class="py-24 px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="mb-16 text-center">
-                <h2 class="text-4xl font-black uppercase italic text-white mb-4 tracking-tighter text-white uppercase uppercase uppercase">Frequently Asked Questions</h2>
-                <div class="h-1.5 w-24 bg-red-600 mx-auto"></div>
-            </div>
-
-            <div class="space-y-4">
-                <div class="faq-item bg-slate-900 border border-slate-800 rounded-3xl p-6 cursor-pointer hover:border-red-600/30 transition-all" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h4 class="font-black uppercase italic text-sm tracking-widest">Apakah patch ini aman untuk main online?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
-                    </div>
-                    <div class="faq-content text-slate-400 text-xs mt-4 leading-relaxed italic italic italic">
-                        Untuk PC Version, kami sangat menyarankan untuk bermain secara OFFLINE guna menghindari banned dari developer. Untuk PS4 HEN, semua dimainkan secara OFFLINE.
-                    </div>
-                </div>
-
-                <div class="faq-item bg-slate-900 border border-slate-800 rounded-3xl p-6 cursor-pointer hover:border-red-600/30 transition-all" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h4 class="font-black uppercase italic text-sm tracking-widest">Bagaimana jika saya ganti PC/Laptop?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
-                    </div>
-                    <div class="faq-content text-slate-400 text-xs mt-4 leading-relaxed italic italic">
-                        Karena sistem HWID terkunci pada satu perangkat, jika Anda mengganti hardware utama (seperti Motherboard), Anda perlu melakukan registrasi lisensi ulang. Hubungi admin untuk bantuan lebih lanjut.
-                    </div>
-                </div>
-
-                <div class="faq-item bg-slate-900 border border-slate-800 rounded-3xl p-6 cursor-pointer hover:border-red-600/30 transition-all" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <h4 class="font-black uppercase italic text-sm tracking-widest">Apakah ada panduan cara instalnya?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
-                    </div>
-                    <div class="faq-content text-slate-400 text-xs mt-4 leading-relaxed italic italic">
-                        Tentu! Setiap pembelian sudah termasuk akses ke grup khusus dan video tutorial instalasi yang sangat mudah dipahami, bahkan untuk pemula sekalipun.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Pesanan -->
-    <div id="modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-6">
-        <div class="fixed inset-0 bg-slate-950/90 backdrop-blur-xl" onclick="closeModal()"></div>
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-[2.5rem] p-8 md:p-10 relative z-10 shadow-2xl max-h-[95vh] overflow-hidden flex flex-col">
-            <h2 class="text-2xl font-black uppercase italic mb-6 text-white shrink-0 italic italic">Konfirmasi Pesanan</h2>
-            
-            <div class="overflow-y-auto modal-scroll space-y-6 pr-2">
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl space-y-5">
-                    <p class="text-[10px] font-black text-red-500 uppercase tracking-widest italic italic italic">PENTING: BACA SEBELUM MEMESAN</p>
-                    <div class="space-y-4">
-                        <p class="text-[11px] text-slate-300 leading-relaxed font-bold italic italic italic italic">Sebelum melakukan pemesanan Daeng Patch, harap baca dan pahami ketentuan sistem lisensi kami berikut ini:</p>
-                        
-                        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/50 italic italic italic italic">
-                            <p class="text-xs font-black text-white flex items-center gap-2 mb-2 uppercase tracking-tighter italic italic italic">🔐 Sistem Keamanan HWID</p>
-                            <p class="text-[11px] text-slate-400 leading-relaxed italic italic italic">Patch ini menggunakan fitur HWID (Hardware ID), yang artinya akses terkunci pada perangkat yang Anda gunakan.</p>
-                            <ul class="text-[10px] text-slate-500 mt-2 space-y-1">
-                                <li class="flex items-start gap-2 italic font-bold text-slate-300">• LISENSI EKSKLUSIF: <span class="text-slate-500 font-normal not-italic italic italic italic italic italic">Hanya pengguna dengan lisensi aktif yang dapat mengakses fitur patch.</span></li>
-                                <li class="flex items-start gap-2 italic font-bold text-slate-300">• SATU PERANGKAT: <span class="text-slate-500 font-normal not-italic italic italic italic italic italic">Pastikan lisensi diaktifkan pada PC utama yang Anda gunakan.</span></li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/50 italic italic italic italic">
-                            <p class="text-xs font-black text-white flex items-center gap-2 mb-2 uppercase tracking-tighter italic italic italic">📶 Akses Offline & Update</p>
-                            <p class="text-[11px] text-slate-400 leading-relaxed italic italic italic">Kami memberikan fleksibilitas agar Anda tetap bisa bermain kapan saja:</p>
-                            <ul class="text-[10px] text-slate-500 mt-2 space-y-1 italic italic italic italic">
-                                <li class="flex items-start gap-2 italic font-bold text-slate-300">• MAIN TANPA INTERNET: <span class="text-slate-500 font-normal not-italic italic italic italic italic italic">Anda tetap bisa melakukan Start Game dan bermain meskipun dalam kondisi Offline.</span></li>
-                                <li class="flex items-start gap-2 italic font-bold text-slate-300">• KETENTUAN UPDATE: <span class="text-slate-500 font-normal not-italic italic italic italic italic italic">Anda tidak dapat melakukan update ke versi terbaru jika lisensi Anda tidak aktif atau sudah kedaluwarsa.</span></li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/50 italic italic italic italic">
-                            <p class="text-xs font-black text-white flex items-center gap-2 mb-2 uppercase tracking-tighter italic italic italic">📩 Konfirmasi Pembayaran</p>
-                            <p class="text-[11px] text-slate-400 leading-relaxed italic italic italic">Setelah melakukan transfer, mohon segera kirimkan data berikut untuk proses aktivasi:</p>
-                            <div class="mt-2 grid grid-cols-1 gap-1 text-[10px] font-black text-red-500 uppercase italic">
-                                <span>1. Bukti Transfer (Foto/Screenshot)</span>
-                                <span>2. Alamat Gmail Anda</span>
-                                <span>3. Nama Lengkap Anda</span>
-                            </div>
-                        </div>
-                        <p class="text-[10px] text-slate-500 italic text-center border-t border-slate-900 pt-4">Kirimkan data tersebut ke admin agar lisensi dan akses patch bisa segera kami proses. Terima kasih!</p>
-                    </div>
-                </div>
-
-                <div class="space-y-4">
-                    <div>
-                        <label class="text-[10px] font-black text-slate-500 uppercase ml-2 mb-2 block tracking-widest italic italic italic">Nama Lengkap</label>
-                        <input id="name" type="text" placeholder="..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4 focus:border-red-500 outline-none font-bold text-white transition-all">
-                    </div>
-                    <div>
-                        <label class="text-[10px] font-black text-slate-500 uppercase ml-2 mb-2 block tracking-widest italic italic italic">Alamat Gmail</label>
-                        <input id="email" type="email" placeholder="contoh@gmail.com" class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4 focus:border-red-500 outline-none font-bold text-white transition-all">
-                    </div>
-                    <div class="bg-slate-950 p-6 rounded-3xl border border-slate-800 flex justify-between items-center">
-                        <div>
-                            <p class="text-[10px] font-black uppercase text-blue-500 tracking-widest mb-1 italic italic italic italic">SeaBank Transfer</p>
-                            <p id="acc-number" class="text-2xl font-black text-white tracking-[0.1em]">901397995339</p>
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest leading-none italic italic italic italic">A/N DEDI WAHYUDI</p>
-                        </div>
-                        <button onclick="copyAcc()" class="text-red-500 hover:text-white transition-colors bg-red-600/10 p-3 rounded-xl">
-                            <i data-lucide="copy" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                    <button onclick="sendWA()" class="w-full bg-green-600 hover:bg-green-700 text-white py-6 rounded-2xl font-black text-lg flex items-center justify-center gap-3 transition-all shrink-0 shadow-lg shadow-green-600/20 active:scale-95">
-                        KONFIRMASI VIA WHATSAPP <i data-lucide="message-circle" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ======================================================= -->
-    <!-- PREVIEW MODAL - Bisa diisi gambar/YouTube per produk    -->
-    <!-- ======================================================= -->
-    <div id="preview-modal" class="preview-modal" role="dialog" aria-modal="true">
-        <div class="preview-modal-bg" onclick="closePreview()"></div>
-        <div class="preview-modal-inner">
-            <!-- Header -->
-            <div class="flex items-center justify-between mb-6">
-                <div>
-                    <p id="preview-badge" class="text-[9px] font-black text-red-500 uppercase tracking-[0.2em] mb-1"></p>
-                    <h3 id="preview-title" class="text-xl font-black text-white uppercase italic tracking-tighter"></h3>
-                </div>
-                <button onclick="closePreview()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors">
-                    <i data-lucide="x" class="w-5 h-5 text-white"></i>
-                </button>
-            </div>
-
-            <!-- Area Media Utama -->
-            <div class="preview-main mb-4" id="preview-main-area">
-                <div id="preview-main-img-wrap" style="width:100%;height:100%;">
-                    <img id="preview-main-img" src="" alt="Preview" style="width:100%;height:100%;object-fit:cover;display:none;">
-                </div>
-                <div id="preview-main-video-wrap" style="width:100%;height:100%;display:none;">
-                    <iframe id="preview-main-video" src="" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>
-                </div>
-                <div id="preview-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#475569;">
-                    <i data-lucide="image" style="width:40px;height:40px;margin-bottom:8px;opacity:0.4;"></i>
-                    <p style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;opacity:0.5;">Belum ada preview</p>
-                </div>
-            </div>
-
-            <!-- Thumbnail Grid -->
-            <div id="preview-thumb-grid" class="preview-thumb-grid"></div>
-
-            <!-- Deskripsi singkat + tombol order -->
-            <div id="preview-footer" class="mt-6 pt-5 border-t border-slate-800 flex items-center justify-between gap-4">
-                <p id="preview-price" class="text-2xl font-black text-white tracking-tighter"></p>
-                <button id="preview-order-btn" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest transition-all flex items-center gap-2">
-                    ORDER NOW <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                </button>
-            </div>
-
-            <!-- UCAPAN AJAKAN -->
-            <div class="mt-5 p-4 rounded-2xl border border-slate-700/50 bg-slate-900/40 text-center">
-                <p class="text-base mb-1">💬</p>
-                <p class="text-[11px] font-black text-white uppercase tracking-widest mb-1">Ada Pertanyaan?</p>
-                <p class="text-[10px] text-slate-400 leading-relaxed mb-3">Jangan ragu hubungi admin kami! Kami siap membantu kamu memilih produk yang paling sesuai.</p>
-                <a href="https://wa.me/6287777747477" target="_blank" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95">
-                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chat Admin Sekarang
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tombol WA Melayang -->
-    <a href="https://wa.me/6287777747477" target="_blank" class="fixed bottom-8 right-8 z-[70] bg-green-600 text-white p-4 rounded-full shadow-2xl shadow-green-600/40 hover:scale-110 transition-all active:scale-95 group">
-        <i data-lucide="message-circle" class="w-8 h-8"></i>
-        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-900 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-xl border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Tanya Admin</span>
-    </a>
-
-    <!-- Kaki Halaman (Footer) -->
-    <footer class="py-12 px-6 bg-slate-950 text-center border-t border-slate-900 italic italic italic">
-        <div class="mb-6 inline-flex flex-col items-center italic italic italic">
-            <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-full mb-2">
-                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse italic italic italic"></div>
-                <span id="visitor-count" class="text-[12px] font-black text-white tracking-widest uppercase uppercase uppercase uppercase">MEMUAT...</span>
-            </div>
-            <p class="text-[8px] font-black text-slate-600 uppercase tracking-[0.3em] uppercase uppercase uppercase uppercase uppercase">Total Pengunjung Web</p>
-        </div>
-        <div class="mb-8 flex justify-center gap-8 items-center italic italic italic">
-            <a href="https://www.facebook.com/share/1DgPNywNaQ/" target="_blank" class="text-slate-500 hover:text-blue-600 transition-all hover:scale-110">
-                <i data-lucide="facebook"></i>
-            </a>
-            <a href="https://www.tiktok.com/@daeng_patch?_r=1&_t=ZS-94pTyR3XCdc" target="_blank" class="text-slate-500 hover:text-white transition-all hover:scale-110">
-                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.1-3.44-3.37-3.5-5.75-.12-2.13.86-4.23 2.56-5.51 1.12-.88 2.53-1.37 3.95-1.36.1 2.13 0 4.25.01 6.38-1.21-.44-2.85.21-3.2 1.54-.3 1.02.37 2.26 1.36 2.51.81.24 1.8-.18 2.21-.88.25-.48.27-1.03.26-1.57.02-5.48-.01-10.97.02-16.45Z"/></svg>
-            </a>
-            <a href="https://wa.me/6287777747477" target="_blank" class="text-slate-500 hover:text-green-500 transition-all hover:scale-110">
-                <i data-lucide="message-circle"></i>
-            </a>
-        </div>
-        <p class="text-slate-700 text-[10px] font-black uppercase tracking-[0.5em] uppercase uppercase uppercase uppercase uppercase">&copy; 2026 DAENG PATCH STUDIO - INDONESIA MODDER</p>
-    </footer>
-
-    <!-- Skrip SDK Firebase -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot, setDoc, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const firebaseConfig = JSON.parse(__firebase_config);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'daeng-patch-store';
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        async function initStats() {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                onAuthStateChanged(auth, async (user) => {
-                    if (user) {
-                        const statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'stats', 'visitors');
-                        try {
-                            await setDoc(statsDocRef, { count: increment(1) }, { merge: true });
-                        } catch (e) { console.error("Kesalahan memperbarui statistik", e); }
-                        onSnapshot(statsDocRef, (doc) => {
-                            const data = doc.data();
-                            if (data && data.count) {
-                                document.getElementById('visitor-count').innerText = `${data.count.toLocaleString('id-ID')} PENGUNJUNG`;
-                            }
-                        }, (error) => { console.error("Pendengar gagal", error); });
-                    }
-                });
-            } catch (error) { console.error("Autentikasi gagal", error); }
+// ---------- navigasi: latar saat digulir + tautan bagian yang sedang dilihat ----------
+const nav = document.getElementById('nav');
+const gulir = () => nav.classList.toggle('gulir', window.scrollY > 10);
+window.addEventListener('scroll', gulir, { passive: true }); gulir();
+const tautan = {};
+document.querySelectorAll('#menu a').forEach(a => { tautan[a.getAttribute('href').slice(1)] = a; });
+if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting && tautan[e.target.id]) {
+            Object.values(tautan).forEach(a => a.classList.remove('aktif'));
+            tautan[e.target.id].classList.add('aktif');
         }
-        window.addEventListener('load', initStats);
-    </script>
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => io.observe(s));
+}
 
-    <script>
-        // Memastikan library Lucide sudah dimuat sebelum memanggil createIcons
-        window.addEventListener('load', function() {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            } else {
-                console.error('Library Lucide tidak ditemukan.');
-            }
-        });
+// ---------- muncul saat digulir (bertahap per kelompok) ----------
+document.querySelectorAll('[data-stagger]').forEach(g => [...g.children].forEach((c, i) => c.style.setProperty('--u', i % 10)));
+const munculkan = el => el.classList.add('tampil');
+if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { munculkan(e.target); io.unobserve(e.target); } }),
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.querySelectorAll('.muncul').forEach(el => io.observe(el));
+} else document.querySelectorAll('.muncul').forEach(munculkan);
 
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('hidden');
-        }
+// ---------- angka di hero menghitung naik ----------
+function hitung(el) {
+    const akhir = +el.dataset.hitung, mulai = performance.now(), lama = 1200;
+    const langkah = t => {
+        const p = Math.min(1, (t - mulai) / lama);
+        el.textContent = Math.round(akhir * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(langkah);
+    };
+    requestAnimationFrame(langkah);
+}
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('[data-hitung]').forEach(el => { el.textContent = '0'; setTimeout(() => hitung(el), 500); });
 
-        function openModal() {
-            const modal = document.getElementById('modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
-        }
+// ---------- galeri: tampil memudar sesudah gambar termuat ----------
+document.querySelectorAll('.galeri img').forEach(img => {
+    const siap = () => img.parentElement.classList.add('siap');
+    if (img.complete && img.naturalWidth) siap();
+    img.addEventListener('load', siap);
+    img.addEventListener('error', () => { img.onerror = null; img.src = 'https://placehold.co/600x338/0d1528/5d6886?text=DAENG+PATCH'; siap(); });
+});
 
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
+// ---------- FAQ ----------
+function toggleFaq(btn) {
+    const item = btn.parentElement, buka = !item.classList.contains('buka');
+    document.querySelectorAll('.faq-item').forEach(f => { f.classList.remove('buka'); f.querySelector('.faq-tanya').setAttribute('aria-expanded', 'false'); });
+    if (buka) { item.classList.add('buka'); btn.setAttribute('aria-expanded', 'true'); }
+}
 
-        function toggleFaq(el) {
-            const isActive = el.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-            if (!isActive) el.classList.add('active');
-        }
+// ---------- jendela ----------
+function bukaJendela(id) { document.getElementById(id).classList.add('buka'); document.body.style.overflow = 'hidden'; }
+function tutupJendela(id) {
+    document.getElementById(id).classList.remove('buka');
+    if (!document.querySelector('.modal.buka')) document.body.style.overflow = '';
+}
+function openModal() { bukaJendela('modal'); }
+function closeModal() { tutupJendela('modal'); }
+function bukaKetentuan() { bukaJendela('ketentuan-modal'); }
+function tutupKetentuan() { tutupJendela('ketentuan-modal'); }
+document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    if (document.getElementById('preview-modal').classList.contains('buka')) return closePreview();
+    document.querySelectorAll('.modal.buka').forEach(m => tutupJendela(m.id));
+});
 
-        function orderWA(product) {
-            const msg = `Halo Admin DAENG PATCH,%0A%0ASaya ingin memesan:*%0A- ${product}%0A%0AMohon info cara pembayarannya!`;
-            window.open(`https://wa.me/6287777747477?text=${msg}`, '_blank');
-        }
+// ---------- WhatsApp ----------
+function bukaWA(teks) { window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(teks), '_blank'); }
+function orderWA(product) {
+    bukaWA(`Halo Admin DAENG PATCH,\n\nSaya ingin memesan:\n*${product}*\n\nMohon info cara pembayarannya!`);
+}
+function sendWA() {
+    const name = document.getElementById('name').value.trim(), email = document.getElementById('email').value.trim();
+    if (!name || !email) { notif('Harap isi Nama dan Gmail Anda!'); (name ? document.getElementById('email') : document.getElementById('name')).focus(); return; }
+    bukaWA(`Halo Admin DAENG PATCH,\n\nSaya ingin memesan *PES 2026 PC VERSION (Full Update)*\n*Nama:* ${name}\n*Gmail:* ${email}\n\nSaya sudah transfer ke SeaBank. Mohon diproses!`);
+}
+function notif(t) {
+    const n = document.getElementById('notif');
+    n.textContent = t; n.classList.add('tampil');
+    clearTimeout(n._t); n._t = setTimeout(() => n.classList.remove('tampil'), 2200);
+}
+function copyAcc() {
+    const no = document.getElementById('acc-number').textContent.trim();
+    const ok = () => notif('Nomor SeaBank berhasil disalin!');
+    const cadangan = () => {
+        const t = document.createElement('textarea'); t.value = no; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        try { document.execCommand('copy'); ok(); } catch (e) { window.prompt('Salin manual (Ctrl+C):', no); }
+        t.remove();
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(no).then(ok, cadangan); else cadangan();
+}
 
-        function copyAcc() {
-            const accNum = "901397995339";
-            const el = document.createElement('textarea');
-            el.value = accNum;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            const feedback = document.createElement('div');
-            feedback.textContent = 'Nomor SeaBank Berhasil Disalin!';
-            feedback.className = 'fixed bottom-10 left-1/2 -translate-x-1/2 bg-red-600 text-white px-6 py-3 rounded-full font-bold z-[200] animate-bounce';
-            document.body.appendChild(feedback);
-            setTimeout(() => feedback.remove(), 2000);
-        }
+// ============================================================
+// DATA PREVIEW PRODUK
+// - "images": isi array URL gambar preview
+// - "youtube": isi Video ID YouTube (bagian setelah ?v= di URL)
+// Tombol LIHAT PREVIEW hanya muncul bila produk punya gambar / video.
+// ============================================================
+const productPreviews = {
+    'efootball2027': {
+        title: 'eFootball 2027',
+        badge: 'PS4 HEN & PS5 HEN',
+        price: 'Rp 150.000',
+        orderKey: 'eFootball 2027 (PS4 HEN / PS5 HEN)',
+        orderType: 'wa',
+        images: [
+            // Isi link screenshot eFootball 2027 di sini, tombol LIHAT PREVIEW akan muncul sendiri
+        ],
+        youtube: ''
+    },
+    'naruto': {
+        title: 'Naruto x Boruto Storm Connections',
+        badge: 'PS4 HEN MOD',
+        price: 'Rp 50.000',
+        orderKey: 'Naruto Boruto Connections Mod Indo',
+        orderType: 'wa', // 'wa' atau 'shopee'
+        images: [
+            // Contoh: 'https://i.ibb.co/xxxx/gambar.jpg'
+            // Ganti dengan link screenshot mod-mu
+        ],
+        youtube: '' // Contoh: 'dQw4w9WgXcQ'
+    },
+    'gta5': {
+        title: 'GTA 5 Mod Indonesia Bundle',
+        badge: 'PS4 HEN MOD',
+        price: 'Rp 150.000',
+        orderKey: 'GTA 5 Mod DAENG - Paket Pengguna Pribadi (1 KEY, Rp150.000)',
+        orderType: 'wa',
+        images: [
+            'https://i.ibb.co.com/7xcPRdFG/Screenshot-668.png',
+            'https://i.ibb.co.com/gLJHGjKt/Screenshot-669.png',
+            'https://i.ibb.co.com/HDbyX28v/Screenshot-670.png',
+            'https://i.ibb.co.com/BVT2W5Q2/Screenshot-671.png',
+            'https://i.ibb.co.com/w5bZtwg/Screenshot-672.png',
+            'https://i.ibb.co.com/v46XH3Gq/Screenshot-673.png',
+            'https://i.ibb.co.com/fYgyW8zX/Screenshot-674.png',
+            'https://i.ibb.co.com/2YpSgtgD/Screenshot-675.png',
+            'https://i.ibb.co.com/KxQt17NK/Screenshot-676.png',
+            'https://i.ibb.co.com/WvjfQmP3/Screenshot-677.png',
+            'https://i.ibb.co.com/7tGsfy2R/Screenshot-678.png',
+            'https://i.ibb.co.com/3mXp5L7K/Screenshot-679.png',
+            'https://i.ibb.co.com/gKkyxWT/Screenshot-680.png',
+            'https://i.ibb.co.com/60DzrJPt/Screenshot-681.png',
+            'https://i.ibb.co.com/qMw2Kh82/Screenshot-682.png',
+            'https://i.ibb.co.com/WpWYxScp/Screenshot-683.png',
+            'https://i.ibb.co.com/Q7NWfHRp/Screenshot-684.png',
+            'https://i.ibb.co.com/MD6wYs3h/Screenshot-685.png',	
+            'https://i.ibb.co.com/yFcp8Z6R/Screenshot-686.png',
+            'https://i.ibb.co.com/wZbhDWY7/Screenshot-687.png',
+            'https://i.ibb.co.com/DfBVKMSj/Screenshot-688.png',
+            'https://i.ibb.co.com/Hf5xCFy6/Screenshot-689.png',
+            'https://i.ibb.co.com/svnqTWzQ/Screenshot-690.png',
+            'https://i.ibb.co.com/BHDzJZrZ/Screenshot-691.png',
+            'https://i.ibb.co.com/d0dPjS8r/Screenshot-692.png',
+            'https://i.ibb.co.com/zhRs8Nrc/Screenshot-693.png',
+            'https://i.ibb.co.com/WNNgs9Z2/Screenshot-694.png',
+            'https://i.ibb.co.com/d09jTS5s/Screenshot-695.png',
+            'https://i.ibb.co.com/WNphTKgm/Screenshot-696.png',
+            'https://i.ibb.co.com/LdYgHPPg/Screenshot-697.png',					
+            'https://i.ibb.co.com/VWqNtSQT/Screenshot-698.png',
+        ],
+        youtube: ''
+    },
+    'pes2018': {
+        title: 'PES 2018 Season 2026',
+        badge: 'PS4 HEN LATEST UPDATE',
+        price: 'Rp 150.000',
+        orderKey: 'PES 2018 Season 2026',
+        orderType: 'wa',
+        images: [],
+        youtube: ''
+    },
+    'pes2026pc': {
+        title: 'PES 2026 PC Version',
+        badge: 'FLAGSHIP PC MOD',
+        price: 'Rp 200.000',
+        orderKey: null,
+        orderType: 'modal',
+        images: [
+            'https://iili.io/qNcUbIa.jpg',
+            'https://i.ibb.co.com/3mpBSw69/FB-IMG-1773968089789.jpg',
+            'https://i.ibb.co.com/84RX40YW/Screenshot-2026-03-20-08-50-23-798-com-ss-android-ugc-trill-edit.jpg',
+            'https://i.ibb.co.com/1GxB5SQB/Screenshot-2026-03-20-08-55-30-358-com-facebook-katana-edit.jpg',
+        ],
+        youtube: '' // Isi Video ID YouTube jika ada
+    },
+    'pes2026ps4': {
+        title: 'PES 2026 PS4 HEN',
+        badge: 'PS4 HEN PACKAGE',
+        price: 'Rp 350.000',
+        orderKey: null,
+        orderType: 'shopee',
+        shopeeLink: 'https://s.shopee.co.id/5Anse4ofFA',
+        images: [
+            'https://i.ibb.co.com/zVphKVwK/FB-IMG-1773968252726.jpg',
+            'https://i.ibb.co.com/dwQqcJ6w/FB-IMG-1773968282239.jpg',
+            'https://i.ibb.co.com/VWGtQy51/FB-IMG-1773968084605.jpg',
+        ],
+        youtube: ''
+    }
+};
 
-        function sendWA() {
-            const name = document.getElementById('name')?.value;
-            const email = document.getElementById('email')?.value;
-            if(!name || !email) { alert('Harap isi Nama dan Gmail Anda!'); return; }
-            const msg = `Halo Admin DAENG PATCH,%0A%0ASaya ingin memesan *PC VERSION (Full Update)*%0A*Nama:* ${name}%0A*Gmail:* ${email}%0A%0ASaya sudah transfer ke SeaBank. Mohon diproses!`;
-            window.open(`https://wa.me/6287777747477?text=${msg}`, '_blank');
-        }
+document.querySelectorAll('.btn-preview').forEach(b => {
+    const m = (b.getAttribute('onclick') || '').match(/'([^']+)'/), d = m && productPreviews[m[1]];
+    if (!d || (!d.youtube && !d.images.length)) b.remove();
+});
 
-        // ============================================================
-        // DATA PREVIEW PRODUK
-        // ============================================================
-        // CARA EDIT:
-        // - "images": isi array URL gambar preview (bisa 1-6 gambar)
-        // - "youtube": isi Video ID YouTube (bagian setelah ?v= di URL)
-        //   Contoh: URL "https://youtube.com/watch?v=dQw4w9WgXcQ" → ID = "dQw4w9WgXcQ"
-        // - Kosongkan array [] jika belum punya, item placeholder akan muncul otomatis
-        // ============================================================
-        const productPreviews = {
-            'naruto': {
-                title: 'Naruto x Boruto Storm Connections',
-                badge: 'PS4 HEN MOD',
-                price: 'Rp 50.000',
-                orderKey: 'Naruto Boruto Connections Mod Indo',
-                orderType: 'wa', // 'wa' atau 'shopee'
-                images: [
-                    // Contoh: 'https://i.ibb.co/xxxx/gambar.jpg'
-                    // Ganti dengan link screenshot mod-mu
-                ],
-                youtube: '' // Contoh: 'dQw4w9WgXcQ'
-            },
-            'gta5': {
-                title: 'GTA 5 Mod Indonesia Bundle',
-                badge: 'PS4 HEN MOD',
-                price: 'Rp 150.000',
-                orderKey: 'GTA 5 Mod Indo + Mod Menu',
-                orderType: 'wa',
-                images: [
-                    'https://i.ibb.co.com/7xcPRdFG/Screenshot-668.png',
-                    'https://i.ibb.co.com/gLJHGjKt/Screenshot-669.png',
-                    'https://i.ibb.co.com/HDbyX28v/Screenshot-670.png',
-                    'https://i.ibb.co.com/BVT2W5Q2/Screenshot-671.png',
-                    'https://i.ibb.co.com/w5bZtwg/Screenshot-672.png',
-                    'https://i.ibb.co.com/v46XH3Gq/Screenshot-673.png',
-                    'https://i.ibb.co.com/fYgyW8zX/Screenshot-674.png',
-                    'https://i.ibb.co.com/2YpSgtgD/Screenshot-675.png',
-                    'https://i.ibb.co.com/KxQt17NK/Screenshot-676.png',
-                    'https://i.ibb.co.com/WvjfQmP3/Screenshot-677.png',
-                    'https://i.ibb.co.com/7tGsfy2R/Screenshot-678.png',
-                    'https://i.ibb.co.com/3mXp5L7K/Screenshot-679.png',
-                    'https://i.ibb.co.com/gKkyxWT/Screenshot-680.png',
-                    'https://i.ibb.co.com/60DzrJPt/Screenshot-681.png',
-                    'https://i.ibb.co.com/qMw2Kh82/Screenshot-682.png',
-                    'https://i.ibb.co.com/WpWYxScp/Screenshot-683.png',
-                    'https://i.ibb.co.com/Q7NWfHRp/Screenshot-684.png',
-                    'https://i.ibb.co.com/MD6wYs3h/Screenshot-685.png',	
-                    'https://i.ibb.co.com/yFcp8Z6R/Screenshot-686.png',
-                    'https://i.ibb.co.com/wZbhDWY7/Screenshot-687.png',
-                    'https://i.ibb.co.com/DfBVKMSj/Screenshot-688.png',
-                    'https://i.ibb.co.com/Hf5xCFy6/Screenshot-689.png',
-                    'https://i.ibb.co.com/svnqTWzQ/Screenshot-690.png',
-                    'https://i.ibb.co.com/BHDzJZrZ/Screenshot-691.png',
-                    'https://i.ibb.co.com/d0dPjS8r/Screenshot-692.png',
-                    'https://i.ibb.co.com/zhRs8Nrc/Screenshot-693.png',
-                    'https://i.ibb.co.com/WNNgs9Z2/Screenshot-694.png',
-                    'https://i.ibb.co.com/d09jTS5s/Screenshot-695.png',
-                    'https://i.ibb.co.com/WNphTKgm/Screenshot-696.png',
-                    'https://i.ibb.co.com/LdYgHPPg/Screenshot-697.png',					
-                    'https://i.ibb.co.com/VWqNtSQT/Screenshot-698.png',
-                ],
-                youtube: ''
-            },
-            'pes2018': {
-                title: 'PES 2018 Season 2026',
-                badge: 'PS4 HEN LATEST UPDATE',
-                price: 'Rp 150.000',
-                orderKey: 'PES 2018 Season 2026',
-                orderType: 'wa',
-                images: [],
-                youtube: ''
-            },
-            'pes2026pc': {
-                title: 'PES 2026 PC Version',
-                badge: 'FLAGSHIP PC MOD',
-                price: 'Rp 200.000',
-                orderKey: null,
-                orderType: 'modal',
-                images: [
-                    'https://iili.io/qNcUbIa.jpg',
-                    'https://i.ibb.co.com/3mpBSw69/FB-IMG-1773968089789.jpg',
-                    'https://i.ibb.co.com/84RX40YW/Screenshot-2026-03-20-08-50-23-798-com-ss-android-ugc-trill-edit.jpg',
-                    'https://i.ibb.co.com/1GxB5SQB/Screenshot-2026-03-20-08-55-30-358-com-facebook-katana-edit.jpg',
-                ],
-                youtube: '' // Isi Video ID YouTube jika ada
-            },
-            'pes2026ps4': {
-                title: 'PES 2026 PS4 HEN',
-                badge: 'PS4 HEN PACKAGE',
-                price: 'Rp 350.000',
-                orderKey: null,
-                orderType: 'shopee',
-                shopeeLink: 'https://s.shopee.co.id/5Anse4ofFA',
-                images: [
-                    'https://i.ibb.co.com/zVphKVwK/FB-IMG-1773968252726.jpg',
-                    'https://i.ibb.co.com/dwQqcJ6w/FB-IMG-1773968282239.jpg',
-                    'https://i.ibb.co.com/VWGtQy51/FB-IMG-1773968084605.jpg',
-                ],
-                youtube: ''
-            }
-        };
-
-        let currentPreviewProduct = null;
-
-        function openPreview(productKey) {
-            const data = productPreviews[productKey];
-            if (!data) return;
-            currentPreviewProduct = productKey;
-
-            document.getElementById('preview-title').textContent = data.title;
-            document.getElementById('preview-badge').textContent = data.badge;
-            document.getElementById('preview-price').textContent = data.price;
-
-            // Setup order button
-            const orderBtn = document.getElementById('preview-order-btn');
-            if (data.orderType === 'modal') {
-                orderBtn.textContent = 'ORDER SEKARANG';
-                orderBtn.onclick = () => { closePreview(); openModal(); };
-            } else if (data.orderType === 'shopee') {
-                orderBtn.textContent = 'VIA SHOPEE';
-                orderBtn.onclick = () => window.open(data.shopeeLink, '_blank');
-            } else {
-                orderBtn.textContent = 'ORDER NOW';
-                orderBtn.onclick = () => orderWA(data.orderKey);
-            }
-            // Re-append icon
-            orderBtn.innerHTML = orderBtn.textContent + ' <i data-lucide="shopping-bag" style="width:16px;height:16px;display:inline-block;vertical-align:middle;margin-left:6px;"></i>';
-
-            // Build thumbnails
-            const thumbGrid = document.getElementById('preview-thumb-grid');
-            thumbGrid.innerHTML = '';
-
-            const allMedia = [];
-            if (data.youtube) allMedia.push({ type: 'youtube', id: data.youtube });
-            data.images.forEach(url => allMedia.push({ type: 'image', url }));
-
-            if (allMedia.length === 0) {
-                // Show placeholder
-                showPreviewPlaceholder();
-                thumbGrid.style.display = 'none';
-            } else {
-                thumbGrid.style.display = 'grid';
-                allMedia.forEach((item, idx) => {
-                    const thumb = document.createElement('div');
-                    thumb.style.cssText = 'aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;background:#020617;';
-                    thumb.dataset.idx = idx;
-
-                    if (item.type === 'youtube') {
-                        const thumbImg = document.createElement('img');
-                        thumbImg.src = `https://img.youtube.com/vi/${item.id}/mqdefault.jpg`;
-                        thumbImg.style.cssText = 'width:100%;height:100%;object-fit:cover;';
-                        // Play icon overlay
-                        const overlay = document.createElement('div');
-                        overlay.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);';
-                        overlay.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
-                        thumb.style.position = 'relative';
-                        thumb.appendChild(thumbImg);
-                        thumb.appendChild(overlay);
-                    } else {
-                        const img = document.createElement('img');
-                        img.src = item.url;
-                        img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
-                        thumb.appendChild(img);
-                    }
-
-                    thumb.onclick = () => selectPreviewMedia(allMedia, idx, thumb);
-                    thumbGrid.appendChild(thumb);
-                });
-                // Show first item
-                selectPreviewMedia(allMedia, 0, thumbGrid.children[0]);
-            }
-
-            document.getElementById('preview-modal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        }
-
-        function selectPreviewMedia(allMedia, idx, thumbEl) {
-            const item = allMedia[idx];
-            const mainImg = document.getElementById('preview-main-img');
-            const mainImgWrap = document.getElementById('preview-main-img-wrap');
-            const mainVideo = document.getElementById('preview-main-video');
-            const mainVideoWrap = document.getElementById('preview-main-video-wrap');
-            const placeholder = document.getElementById('preview-placeholder');
-
-            placeholder.style.display = 'none';
-
-            if (item.type === 'youtube') {
-                mainImgWrap.style.display = 'none';
-                mainVideoWrap.style.display = 'block';
-                mainVideo.src = `https://www.youtube.com/embed/${item.id}?autoplay=1&rel=0`;
-            } else {
-                mainVideoWrap.style.display = 'none';
-                mainImgWrap.style.display = 'block';
-                mainImg.src = item.url;
-                mainImg.style.display = 'block';
-                // Stop any video
-                mainVideo.src = '';
-            }
-
-            // Update active thumbnail
-            const thumbGrid = document.getElementById('preview-thumb-grid');
-            Array.from(thumbGrid.children).forEach(t => t.style.borderColor = 'transparent');
-            if (thumbEl) thumbEl.style.borderColor = '#ef4444';
-        }
-
-        function showPreviewPlaceholder() {
-            document.getElementById('preview-main-img-wrap').style.display = 'none';
-            document.getElementById('preview-main-video-wrap').style.display = 'none';
-            document.getElementById('preview-placeholder').style.display = 'flex';
-        }
-
-        function closePreview() {
-            document.getElementById('preview-modal').classList.remove('open');
-            document.body.style.overflow = 'auto';
-            // Stop video
-            document.getElementById('preview-main-video').src = '';
-        }
-    </script>
+function openPreview(key) {
+    const d = productPreviews[key];
+    if (!d) return;
+    document.getElementById('preview-title').textContent = d.title;
+    document.getElementById('preview-badge').textContent = d.badge;
+    document.getElementById('preview-price').textContent = d.price;
+    const btn = document.getElementById('preview-order-btn');
+    if (d.orderType === 'modal') { btn.textContent = 'Order Sekarang'; btn.onclick = () => { closePreview(); openModal(); }; }
+    else if (d.orderType === 'shopee') { btn.textContent = 'Via Shopee'; btn.onclick = () => window.open(d.shopeeLink, '_blank'); }
+    else { btn.textContent = 'Order Now'; btn.onclick = () => orderWA(d.orderKey); }
+    const media = [];
+    if (d.youtube) media.push({ type: 'youtube', id: d.youtube });
+    d.images.forEach(url => media.push({ type: 'image', url }));
+    const grid = document.getElementById('preview-thumb-grid');
+    grid.innerHTML = '';
+    media.forEach((m, i) => {
+        const t = document.createElement('button');
+        t.type = 'button'; t.setAttribute('aria-label', 'Preview ' + (i + 1));
+        const img = document.createElement('img');
+        img.loading = 'lazy'; img.alt = '';
+        img.src = m.type === 'youtube' ? `https://img.youtube.com/vi/${m.id}/mqdefault.jpg` : m.url;
+        t.appendChild(img);
+        t.onclick = () => pilihMedia(media, i);
+        grid.appendChild(t);
+    });
+    grid.style.display = media.length > 1 ? '' : 'none';
+    pilihMedia(media, 0);
+    bukaJendela('preview-modal');
+}
+function pilihMedia(media, i) {
+    const m = media[i], utama = document.getElementById('preview-main');
+    utama.innerHTML = '';
+    if (!m) return;
+    if (m.type === 'youtube') {
+        const f = document.createElement('iframe');
+        f.src = `https://www.youtube.com/embed/${m.id}?autoplay=1&rel=0`; f.allow = 'autoplay; fullscreen'; f.allowFullscreen = true;
+        utama.appendChild(f);
+    } else {
+        const img = document.createElement('img'); img.src = m.url; img.alt = 'Preview';
+        utama.appendChild(img);
+    }
+    [...document.getElementById('preview-thumb-grid').children].forEach((t, k) => t.classList.toggle('aktif', k === i));
+}
+function closePreview() {
+    tutupJendela('preview-modal');
+    document.getElementById('preview-main').innerHTML = '';   // hentikan video
+}
+</script>
 </body>
 </html>
